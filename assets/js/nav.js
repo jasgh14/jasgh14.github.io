@@ -21,7 +21,7 @@ export function renderHeader() {
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav-links">
           Menu
         </button>
-        <ul class="nav-links" id="primary-nav-links">${linksHtml}</ul>
+        <div class="nav-links-wrap"><ul class="nav-links" id="primary-nav-links">${linksHtml}</ul><span class="nav-indicator" aria-hidden="true"></span></div>
       </nav>
     </div>
   `;
@@ -47,12 +47,44 @@ export function setupMobileMenu() {
   });
 }
 
+function moveIndicator(link) {
+  const navLinks = document.querySelector(".nav-links");
+  const indicator = document.querySelector(".nav-indicator");
+  if (!navLinks || !indicator || !(link instanceof HTMLElement)) return;
+
+  const linkRect = link.getBoundingClientRect();
+  const navRect = navLinks.getBoundingClientRect();
+  const x = linkRect.left - navRect.left;
+  indicator.style.setProperty("--indicator-x", `${x}px`);
+  indicator.style.setProperty("--indicator-w", `${linkRect.width}px`);
+  indicator.classList.add("is-visible");
+}
+
 export function highlightActiveNav() {
   const current = normalizePath(window.location.pathname);
+  let activeLink = null;
+
   document.querySelectorAll(".nav-links a").forEach((link) => {
     const href = link.getAttribute("href") || "";
     if (href === current) {
       link.setAttribute("aria-current", "page");
+      activeLink = link;
     }
+
+    link.addEventListener("pointerenter", () => moveIndicator(link));
+    link.addEventListener("focus", () => moveIndicator(link));
+  });
+
+  if (activeLink) {
+    requestAnimationFrame(() => moveIndicator(activeLink));
+  }
+
+  const navLinks = document.querySelector(".nav-links");
+  navLinks?.addEventListener("pointerleave", () => {
+    if (activeLink) moveIndicator(activeLink);
+  });
+
+  window.addEventListener("resize", () => {
+    if (activeLink) moveIndicator(activeLink);
   });
 }

@@ -46,6 +46,32 @@
   gap: var(--space-2);
 }
 
+.nav-links-wrap {
+  position: relative;
+}
+
+.nav-indicator {
+  --indicator-x: 0px;
+  --indicator-w: 0px;
+
+  position: absolute;
+  left: 0;
+  bottom: 0.12rem;
+  height: 2px;
+  width: var(--indicator-w);
+  transform: translateX(var(--indicator-x));
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, rgba(127, 168, 255, 0.35), var(--color-accent-strong), rgba(119, 224, 203, 0.35));
+  box-shadow: 0 0 18px rgba(127, 168, 255, 0.28);
+  opacity: 0;
+  transition: transform var(--duration-base) var(--easing-emphasis), width var(--duration-base) var(--easing-emphasis), opacity var(--duration-fast) var(--easing-standard);
+  pointer-events: none;
+}
+
+.nav-indicator.is-visible {
+  opacity: 1;
+}
+
 .nav-links a {
   position: relative;
   color: var(--color-text-soft);
@@ -100,12 +126,30 @@
   letter-spacing: 0.01em;
   box-shadow: var(--shadow-sm);
   transition: transform var(--duration-fast) var(--easing-emphasis), box-shadow var(--duration-base) var(--easing-standard), filter var(--duration-fast) var(--easing-standard);
+  position: relative;
+  overflow: hidden;
 }
+
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--button-spot-x, 50%) var(--button-spot-y, 50%), rgba(255, 255, 255, 0.32), transparent 50%);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--easing-standard);
+  pointer-events: none;
+}
+
 
 .button:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-md), var(--shadow-glow);
   filter: saturate(1.08);
+}
+
+.button:hover::after,
+.button:focus-visible::after {
+  opacity: 1;
 }
 
 .button:active {
@@ -139,6 +183,30 @@
 .panel:hover {
   border-color: var(--color-border);
   box-shadow: var(--shadow-md);
+}
+
+.motion-card {
+  position: relative;
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(0);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform var(--duration-base) var(--easing-emphasis), box-shadow var(--duration-base) var(--easing-standard);
+}
+
+.motion-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--card-spot-x, 50%) var(--card-spot-y, 0%), rgba(255, 255, 255, 0.16), transparent 44%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--easing-standard);
+}
+
+.motion-card:hover::before,
+.motion-card:focus-within::before {
+  opacity: 1;
 }
 
 .panel--glass {
@@ -293,11 +361,14 @@
     display: inline-block;
   }
 
-  .nav-links {
-    display: none;
+  .nav-links-wrap {
     position: absolute;
     top: calc(100% + 0.35rem);
     right: 0.7rem;
+  }
+
+  .nav-links {
+    display: none;
     background: rgba(18, 26, 44, 0.92);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -310,5 +381,23 @@
 
   .site-nav[data-open="true"] .nav-links {
     display: flex;
+  }
+
+  .nav-indicator {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button::after,
+  .motion-card,
+  .motion-card::before,
+  .nav-indicator {
+    transition: none;
+  }
+
+  .motion-card {
+    transform: none;
   }
 }

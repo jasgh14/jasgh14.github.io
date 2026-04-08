@@ -251,9 +251,6 @@
   background: linear-gradient(140deg, color-mix(in srgb, var(--accent) 11%, transparent), color-mix(in srgb, var(--color-surface-2) 90%, transparent));
 }
 
-.page-projects .project-panel.is-transitioning {
-  animation: project-fade-slide var(--duration-base) var(--easing-standard);
-}
 
 .page-projects .projects-showcase[data-mood="diagnosis"] {
   --accent: #5bb2ff;
@@ -344,9 +341,5 @@
 @media (prefers-reduced-motion: reduce) {
   .page-projects .projects-showcase__bar {
     transition: none;
-  }
-
-  .page-projects .project-panel.is-transitioning {
-    animation: none;
   }
 }
