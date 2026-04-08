@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Junaid Asghar | Contact</title>
+  <meta name="description" content="Contact options and direct action cards." />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/utilities.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/pages/contact.css" />
+</head>
+<body class="page-contact">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header" data-site-header></header>
+
+  <main id="main-content" class="site-main container">
+    <section id="contact-intro" class="page-section stack" data-reveal>
+      <p class="eyebrow">Contact</p>
+      <h1>Direct Contact Pathways</h1>
+      <p class="muted" data-contact-intro></p>
+    </section>
+
+    <section id="contact-actions" class="page-section" data-reveal>
+      <h2>Action Cards</h2>
+      <div class="contact-cards" data-contact-cards></div>
+    </section>
+
+    <section id="availability" class="page-section stack" data-reveal>
+      <h2>Availability</h2>
+      <p class="muted" data-availability></p>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-site-footer></footer>
+
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module">
+    import { contactData } from "./assets/data/contact-data.js";
+    import { renderContactCards } from "./assets/js/contact.js";
+
+    const intro = document.querySelector("[data-contact-intro]");
+    if (intro) intro.textContent = contactData.intro || "TODO: Add verified contact intro.";
+
+    renderContactCards();
+  </script>
+</body>
+</html>
