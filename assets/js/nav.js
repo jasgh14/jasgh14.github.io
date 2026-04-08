@@ -18,10 +18,13 @@ export function renderHeader() {
     <div class="container site-header__inner">
       <a class="brand" href="index.html">${siteContent.site?.name || "Portfolio"}</a>
       <nav class="site-nav" aria-label="Primary" data-open="false">
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav-links">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav-links" aria-haspopup="true">
           Menu
         </button>
-        <div class="nav-links-wrap"><ul class="nav-links" id="primary-nav-links">${linksHtml}</ul><span class="nav-indicator" aria-hidden="true"></span></div>
+        <div class="nav-links-wrap" id="primary-nav-links-wrap">
+          <ul class="nav-links" id="primary-nav-links">${linksHtml}</ul>
+          <span class="nav-indicator" aria-hidden="true"></span>
+        </div>
       </nav>
     </div>
   `;
@@ -33,17 +36,71 @@ export function setupMobileMenu() {
   const links = nav?.querySelector(".nav-links");
   if (!nav || !toggle || !links) return;
 
+  const mediaQuery = window.matchMedia("(max-width: 900px)");
+
+  const closeMenu = ({ restoreFocus = false } = {}) => {
+    nav.setAttribute("data-open", "false");
+    toggle.setAttribute("aria-expanded", "false");
+    if (restoreFocus) toggle.focus();
+  };
+
+  const openMenu = () => {
+    nav.setAttribute("data-open", "true");
+    toggle.setAttribute("aria-expanded", "true");
+  };
+
   toggle.addEventListener("click", () => {
     const isOpen = nav.getAttribute("data-open") === "true";
-    nav.setAttribute("data-open", String(!isOpen));
-    toggle.setAttribute("aria-expanded", String(!isOpen));
+    if (isOpen) {
+      closeMenu({ restoreFocus: true });
+      return;
+    }
+
+    openMenu();
+    const firstLink = links.querySelector("a");
+    firstLink?.focus();
   });
 
   links.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) {
-      nav.setAttribute("data-open", "false");
-      toggle.setAttribute("aria-expanded", "false");
+    if (event.target instanceof HTMLAnchorElement) closeMenu();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Node)) return;
+    if (!mediaQuery.matches) return;
+    if (nav.getAttribute("data-open") !== "true") return;
+    if (!nav.contains(event.target)) closeMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!mediaQuery.matches) return;
+    if (nav.getAttribute("data-open") !== "true") return;
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeMenu({ restoreFocus: true });
+      return;
     }
+
+    if (event.key !== "Tab") return;
+
+    const focusables = [...links.querySelectorAll("a")];
+    if (!focusables.length) return;
+
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement;
+
+    if (event.shiftKey && active === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  mediaQuery.addEventListener("change", (event) => {
+    if (!event.matches) closeMenu();
   });
 }
 

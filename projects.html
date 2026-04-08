@@ -3,8 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Junaid Asghar | Projects</title>
-  <meta name="description" content="Featured projects and case-study notes." />
+  <title>Junaid Asghar | Projects Case Studies</title>
+  <meta name="description" content="Explore three featured case studies: Real-Time Visual Diagnosis System, E-commerce Analytics Platform, and PlantOps." />
+  <meta property="og:title" content="Junaid Asghar | Projects Case Studies" />
+  <meta property="og:description" content="Explore three featured case studies: Real-Time Visual Diagnosis System, E-commerce Analytics Platform, and PlantOps." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jasgh14.github.io/projects.html" />
+  <meta property="og:site_name" content="Junaid Asghar Portfolio" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Junaid Asghar | Projects Case Studies" />
+  <meta name="twitter:description" content="Explore three featured case studies: Real-Time Visual Diagnosis System, E-commerce Analytics Platform, and PlantOps." />
+  <link rel="canonical" href="https://jasgh14.github.io/projects.html" />
   <link rel="stylesheet" href="assets/css/theme.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
@@ -48,7 +57,7 @@
 
     <section
       id="featured-slider"
-      class="page-section projects-showcase"
+      class="page-section projects-showcase" role="region" aria-roledescription="carousel"
       data-project-slider
       data-reveal
       aria-labelledby="showcase-heading"
@@ -66,7 +75,7 @@
         </div>
       </div>
 
-      <div class="projects-showcase__viewport">
+      <div class="projects-showcase__viewport" tabindex="0" aria-label="Featured projects carousel viewport">
         <article class="project-panel stack" data-project-panel tabindex="-1" aria-live="polite">
           <p class="project-panel__eyebrow" data-project-eyebrow>Loading…</p>
           <h3 class="project-panel__title" data-project-name>Loading…</h3>
@@ -127,10 +136,10 @@
       </div>
 
       <div class="projects-showcase__controls">
-        <button class="button button--ghost" type="button" data-prev aria-label="Show previous project">
+        <button class="button button--ghost" type="button" data-prev aria-controls="featured-slider" aria-label="Show previous project">
           ← Previous
         </button>
-        <button class="button" type="button" data-next aria-label="Show next project">
+        <button class="button" type="button" data-next aria-controls="featured-slider" aria-label="Show next project">
           Next →
         </button>
       </div>

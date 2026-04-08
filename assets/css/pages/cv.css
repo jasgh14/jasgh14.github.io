@@ -220,3 +220,24 @@
     margin-top: 0.7rem;
   }
 }
+
+
+@media (max-width: 640px) {
+  .page-cv .cv-contact-list li {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .page-cv .cv-intro__actions .button,
+  .page-cv .cv-local-nav__download {
+    width: 100%;
+  }
+
+  .page-cv .back-to-top {
+    inline-size: calc(100% - 1.4rem);
+    left: 0.7rem;
+    right: 0.7rem;
+    bottom: 0.5rem;
+  }
+}

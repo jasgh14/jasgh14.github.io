@@ -343,3 +343,18 @@
     transition: none;
   }
 }
+
+
+.page-projects .projects-showcase__viewport:focus-visible {
+  box-shadow: var(--focus-ring), var(--shadow-lg);
+}
+
+@media (max-width: 640px) {
+  .page-projects .projects-showcase__controls .button {
+    width: 100%;
+  }
+
+  .page-projects .project-panel__section {
+    padding: var(--space-4);
+  }
+}

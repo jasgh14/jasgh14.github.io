@@ -157,3 +157,14 @@
 .page-contact .contact-card__icon {
   transition: transform var(--duration-fast) var(--easing-emphasis), box-shadow var(--duration-base) var(--easing-standard);
 }
+
+
+@media (max-width: 640px) {
+  .page-contact .contact-card__actions .button {
+    width: 100%;
+  }
+
+  .page-contact .topic-pill {
+    padding: 0.45rem 0.78rem;
+  }
+}
