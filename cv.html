@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Junaid Asghar | CV and Technical Profile</title>
-  <meta name="description" content="Digital CV with strengths, education, projects, practical experience, and verified contact links." />
+  <meta name="description" content="Digital CV for Junaid Asghar with technical strengths, education, project work, and verified contact links." />
   <meta property="og:title" content="Junaid Asghar | CV and Technical Profile" />
-  <meta property="og:description" content="Digital CV with strengths, education, projects, practical experience, and verified contact links." />
+  <meta property="og:description" content="Digital CV for Junaid Asghar with technical strengths, education, project work, and verified contact links." />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://jasgh14.github.io/cv.html" />
   <meta property="og:site_name" content="Junaid Asghar Portfolio" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Junaid Asghar | CV and Technical Profile" />
-  <meta name="twitter:description" content="Digital CV with strengths, education, projects, practical experience, and verified contact links." />
+  <meta name="twitter:description" content="Digital CV for Junaid Asghar with technical strengths, education, project work, and verified contact links." />
   <link rel="canonical" href="https://jasgh14.github.io/cv.html" />
   <link rel="stylesheet" href="assets/css/theme.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
@@ -59,7 +59,7 @@
         <section id="cv-strengths" class="page-section stack" data-reveal>
           <div class="section-header">
             <p class="eyebrow">Capabilities</p>
-            <h2>Key strengths & technical capabilities</h2>
+            <h2>Key strengths and technical capabilities</h2>
           </div>
           <div class="cv-strength-grid" data-cv-strengths></div>
         </section>
@@ -75,18 +75,11 @@
         <section id="cv-projects" class="page-section stack" data-reveal>
           <div class="section-header">
             <p class="eyebrow">Selected projects</p>
-            <h2>Applied AI and analytics project work</h2>
+            <h2>Machine learning and analytics project work</h2>
           </div>
           <div class="cv-project-grid" data-cv-projects></div>
         </section>
 
-        <section id="cv-experience" class="page-section stack" data-reveal>
-          <div class="section-header">
-            <p class="eyebrow">Practical work</p>
-            <h2>Experience / practical execution</h2>
-          </div>
-          <div class="timeline" data-cv-experience></div>
-        </section>
 
         <section id="cv-tools" class="page-section stack" data-reveal>
           <div class="section-header">
@@ -125,85 +118,8 @@
 
   <script type="module" src="assets/js/main.js"></script>
   <script type="module">
-    import { cvData } from "./assets/data/cv-data.js";
-
-    const summary = document.querySelector("[data-cv-summary]");
-    if (summary) summary.textContent = cvData.summary || "TODO: Add verified CV summary.";
-
-    const strengthsEl = document.querySelector("[data-cv-strengths]");
-    if (strengthsEl) {
-      const categories = Array.isArray(cvData.strengths) ? cvData.strengths : [];
-      strengthsEl.innerHTML = categories.map((group) => `
-        <article class="card stack">
-          <h3>${group.category || "TODO: Category"}</h3>
-          <ul class="bullet-list cv-bullet-stack">${(group.items?.length ? group.items : ["TODO: Add verified capability"]).map((item) => `<li>${item}</li>`).join("")}</ul>
-        </article>
-      `).join("");
-    }
-
-    const educationEl = document.querySelector("[data-cv-education]");
-    if (educationEl) {
-      const educationItems = Array.isArray(cvData.education) ? cvData.education : [];
-      educationEl.innerHTML = educationItems.map((item) => `
-        <article class="timeline__item card stack">
-          <div class="inline-meta">
-            <span>${item.start || "TODO"}</span>
-            <span>${item.end || "TODO"}</span>
-          </div>
-          <h3>${item.program || "TODO: Program"}</h3>
-          <p class="muted">${item.institution || "TODO: Institution"}</p>
-          <p>${item.notes || "TODO: Add verified degree details."}</p>
-        </article>
-      `).join("");
-    }
-
-    const projectsEl = document.querySelector("[data-cv-projects]");
-    if (projectsEl) {
-      const projects = Array.isArray(cvData.projects) ? cvData.projects : [];
-      projectsEl.innerHTML = projects.map((project) => `
-        <article class="card stack">
-          <h3>${project.name || "TODO: Project"}</h3>
-          <p class="muted">${project.summary || "TODO: Add verified project summary."}</p>
-          <ul class="bullet-list cv-bullet-stack">${(project.highlights?.length ? project.highlights : ["TODO: Add factual highlights"]).map((point) => `<li>${point}</li>`).join("")}</ul>
-          <div class="cv-project-links">
-            <a href="projects.html" aria-label="Open projects page">View on projects page</a>
-            <a href="${project.repo || '#'}" target="_blank" rel="noreferrer">Repository</a>
-          </div>
-        </article>
-      `).join("");
-    }
-
-    const experienceEl = document.querySelector("[data-cv-experience]");
-    if (experienceEl) {
-      const entries = Array.isArray(cvData.experience) ? cvData.experience : [];
-      experienceEl.innerHTML = entries.map((item) => `
-        <article class="timeline__item card stack">
-          <div class="inline-meta">
-            <span>${item.period || "TODO: Add dates"}</span>
-            <span>${item.type || "TODO: Add work type"}</span>
-          </div>
-          <h3>${item.title || "TODO: Add verified role"}</h3>
-          <p class="muted">${item.org || "TODO: Add verified organization"}</p>
-          <ul class="bullet-list cv-bullet-stack">${(item.bullets?.length ? item.bullets : ["TODO: Add factual contribution bullet"]).map((point) => `<li>${point}</li>`).join("")}</ul>
-        </article>
-      `).join("");
-    }
-
-    const fillTagList = (selector, values, fallback) => {
-      const el = document.querySelector(selector);
-      if (!el) return;
-      const items = Array.isArray(values) && values.length ? values : [fallback];
-      el.innerHTML = items.map((value) => `<li>${value}</li>`).join("");
-    };
-
-    fillTagList("[data-cv-tools]", cvData.tools, "TODO: Add verified tool");
-    fillTagList("[data-cv-interests]", cvData.interests, "TODO: Add verified interest");
-
-    const linksEl = document.querySelector("[data-cv-links]");
-    if (linksEl) {
-      const links = Array.isArray(cvData.links) ? cvData.links : [];
-      linksEl.innerHTML = links.map((link) => `<li><span>${link.label || "TODO"}</span><a href="${link.href || '#'}" ${link.href?.startsWith('mailto:') ? '' : 'target="_blank" rel="noreferrer"'}>${link.value || link.href || "TODO: value"}</a></li>`).join("");
-    }
+    import { renderCvPage } from "./assets/js/cv.js";
+    renderCvPage();
   </script>
 </body>
 </html>

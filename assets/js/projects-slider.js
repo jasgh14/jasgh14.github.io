@@ -15,9 +15,9 @@ export function setupProjectsSlider() {
   const featured = projectsData.slice(0, 3);
   if (!featured.length) return;
 
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let currentIndex = 0;
   let touchStartX = 0;
-  let touchEndX = 0;
 
   const panel = root.querySelector("[data-project-panel]");
   const progressCount = root.querySelector("[data-progress-count]");
@@ -25,6 +25,7 @@ export function setupProjectsSlider() {
   const liveRegion = root.querySelector("[data-project-live]");
   const prevButton = root.querySelector("[data-prev]");
   const nextButton = root.querySelector("[data-next]");
+  const projectNav = root.querySelector("[data-project-nav]");
 
   const ui = {
     eyebrow: root.querySelector("[data-project-eyebrow]"),
@@ -41,6 +42,8 @@ export function setupProjectsSlider() {
     workflow: document.querySelector("[data-process-workflow]"),
     lessons: document.querySelector("[data-process-lessons]"),
     cta: document.querySelector("[data-project-cta]"),
+    currentProject: document.querySelector("[data-current-project-name]"),
+    framingCards: Array.from(document.querySelectorAll("[data-framing-card]")),
     panelProblem: root.querySelector("[data-panel-problem]"),
     panelApproach: root.querySelector("[data-panel-approach]"),
     panelWorkflow: root.querySelector("[data-panel-workflow]"),
@@ -52,6 +55,8 @@ export function setupProjectsSlider() {
     panelFuture: root.querySelector("[data-panel-future]"),
     panelCtaButtons: root.querySelector("[data-panel-cta-buttons]")
   };
+
+  let navButtons = [];
 
   function renderMetadata(metadata) {
     if (!ui.metadata) return;
@@ -116,7 +121,21 @@ export function setupProjectsSlider() {
     }
   }
 
-  function paint(nextIndex, { announce = false } = {}) {
+  function syncNavState(project) {
+    navButtons.forEach((button, index) => {
+      const isCurrent = index === currentIndex;
+      button.setAttribute("aria-current", isCurrent ? "true" : "false");
+      button.setAttribute("aria-label", isCurrent
+        ? `Current project: ${safeText(project?.name, "project")}`
+        : `Jump to project ${index + 1}: ${safeText(featured[index]?.name, "project")}`);
+    });
+
+    ui.framingCards.forEach((card, index) => {
+      card.classList.toggle("is-active", index === currentIndex);
+    });
+  }
+
+  function paint(nextIndex, { announce = false, direction = "next", shouldFocusPanel = false } = {}) {
     currentIndex = modulo(nextIndex, featured.length);
     const project = featured[currentIndex] || {};
     const hero = project.hero || {};
@@ -142,6 +161,7 @@ export function setupProjectsSlider() {
     if (ui.workflow) ui.workflow.textContent = safeText(process.workflow, "TODO: Add verified process notes.");
     if (ui.lessons) ui.lessons.textContent = safeText(process.lessons, "TODO: Add verified lessons.");
     if (ui.cta) ui.cta.textContent = safeText(project.cta, "TODO: Add verified CTA for this project.");
+    if (ui.currentProject) ui.currentProject.textContent = safeText(project.name, "Current case study");
     if (progressCount) progressCount.textContent = `${currentIndex + 1} / ${featured.length}`;
     if (progressBar) progressBar.style.inlineSize = `${((currentIndex + 1) / featured.length) * 100}%`;
 
@@ -151,32 +171,58 @@ export function setupProjectsSlider() {
     renderMetadata(project.metadata);
     renderTags(project.tags);
     renderPanelCaseStudy(project.caseStudy);
+    syncNavState(project);
 
     if (announce && liveRegion) {
       liveRegion.textContent = `Project ${currentIndex + 1} of ${featured.length}: ${safeText(project.name, "Untitled project")}`;
     }
   }
 
-  function next() {
-    paint(currentIndex + 1, { announce: true });
+  function next(options = {}) {
+    paint(currentIndex + 1, { announce: true, direction: "next", ...options });
   }
 
-  function prev() {
-    paint(currentIndex - 1, { announce: true });
+  function prev(options = {}) {
+    paint(currentIndex - 1, { announce: true, direction: "prev", ...options });
   }
 
-  nextButton?.addEventListener("click", next);
-  prevButton?.addEventListener("click", prev);
+  if (projectNav) {
+    projectNav.innerHTML = featured
+      .map((project, index) => `<button type="button" class="projects-showcase__dot" data-project-dot data-dot-index="${index}" aria-label="Jump to project ${index + 1}: ${safeText(project.name, "project")}"></button>`)
+      .join("");
+
+    navButtons = Array.from(projectNav.querySelectorAll("[data-project-dot]"));
+    navButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const index = Number(button.dataset.dotIndex);
+        if (Number.isFinite(index)) {
+          paint(index, { announce: true, direction: index < currentIndex ? "prev" : "next", shouldFocusPanel: true });
+        }
+      });
+    });
+  }
+
+  ui.framingCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const index = Number(card.dataset.projectIndex);
+      if (Number.isFinite(index)) {
+        paint(index, { announce: true, direction: index < currentIndex ? "prev" : "next", shouldFocusPanel: true });
+      }
+    });
+  });
+
+  nextButton?.addEventListener("click", () => next({ shouldFocusPanel: true }));
+  prevButton?.addEventListener("click", () => prev({ shouldFocusPanel: true }));
 
   root.addEventListener("keydown", (event) => {
     if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
     if (!root.contains(document.activeElement)) return;
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      next();
+      next({ shouldFocusPanel: true });
     } else if (event.key === "ArrowLeft") {
       event.preventDefault();
-      prev();
+      prev({ shouldFocusPanel: true });
     }
   });
 
@@ -191,9 +237,9 @@ export function setupProjectsSlider() {
   root.addEventListener(
     "touchend",
     (event) => {
-      touchEndX = event.changedTouches[0]?.clientX ?? 0;
+      const touchEndX = event.changedTouches[0]?.clientX ?? 0;
       const distance = touchEndX - touchStartX;
-      if (Math.abs(distance) < 40) return;
+      if (Math.abs(distance) < 38) return;
       if (distance < 0) next();
       if (distance > 0) prev();
     },

@@ -1,6 +1,6 @@
 export const cvData = {
   summary:
-    "Machine Learning practitioner focused on visual analytics, automation workflows, and decision-ready data products. Work spans computer vision pipelines, experimentation, and practical analytics delivery for real-world operations.",
+    "Machine learning practitioner focused on visual analytics, automation workflows, and practical data products. Work spans computer vision pipelines, experimentation, and dependable analytics delivery for real world operations.",
   strengths: [
     {
       category: "Python & ML Systems",
@@ -14,7 +14,7 @@ export const cvData = {
       category: "SQL, Analytics & BI",
       items: [
         "SQL-driven analysis for structured reporting and performance monitoring",
-        "Power BI dashboarding for stakeholder-ready insight communication",
+        "Power BI dashboarding for clear insight communication",
         "Data preparation patterns using pandas-based transformation steps"
       ]
     },
@@ -23,7 +23,7 @@ export const cvData = {
       items: [
         "End-to-end visual diagnosis workflow design",
         "Automation concepts for disease monitoring and analysis tasks",
-        "Applied AI project framing from prototype through practical usage"
+        "Applied AI project framing from prototype through practical use"
       ]
     },
     {
@@ -31,24 +31,31 @@ export const cvData = {
       items: [
         "Iterative experimentation mindset with structured observations",
         "Pipeline modularity for maintainable analytics and ML systems",
-        "UI-assisted delivery approaches for non-technical usage contexts"
+        "UI assisted delivery approaches for non technical usage contexts"
       ]
     }
   ],
   education: [
     {
-      institution: "TODO: Confirm institution name",
+      institution: "Queen Mary University of London",
+      program: "BSc Computer Science",
+      start: "September 2021",
+      end: "September 2024",
+      notes: "Project: E-commerce analytics platform delivering actionable insights from market and sales data using ML and SQL on AWS." 
+    },
+    {
+      institution: "Queen Mary University of London",
       program: "MSc Machine Learning for Visual Data Analytics",
-      start: "TODO: Confirm start date",
-      end: "TODO: Confirm completion date",
-      notes: "Verified degree title retained. Add final award details or distinction only if confirmed."
+      start: "September 2024",
+      end: "September 2025",
+      notes: "Thesis: Live plant disease detection software utilising core machine learning techniques to provide a multi label explainable AI solution to help farmers and gardeners easily catch crop disease"
     }
   ],
   projects: [
     {
       name: "Real-Time Visual Diagnosis System",
       summary:
-        "Real-time visual diagnosis pipeline combining detection and classification with explainability-aware output for practical usage.",
+        "Real time visual diagnosis pipeline combining detection and classification with explainability aware output for practical use.",
       highlights: [
         "Designed around computer vision model flow for timely prediction feedback",
         "Integrated explainability considerations to support result interpretation",
@@ -63,7 +70,7 @@ export const cvData = {
       highlights: [
         "Focused on reliable data shaping and reporting consistency",
         "Structured for decision-support views rather than one-off analysis",
-        "Connected ETL thinking with stakeholder-facing BI presentation"
+        "Connected ETL thinking with BI presentation for business users"
       ],
       repo: "https://github.com/jasgh14"
     },
@@ -74,22 +81,8 @@ export const cvData = {
       highlights: [
         "Built as an applied AI monitoring concept for agricultural workflows",
         "Frames disease analysis as a repeatable and automatable process",
-        "TODO: Add verified technical stack and deployment context"
       ],
       repo: "TODO: Add verified PlantOps repository"
-    }
-  ],
-  experience: [
-    {
-      org: "TODO: Add verified organization",
-      title: "TODO: Add verified practical role",
-      period: "TODO: Add verified period",
-      type: "Practical work",
-      bullets: [
-        "TODO: Add factual contribution based on verified records",
-        "TODO: Add tooling used for that practical assignment",
-        "TODO: Add outcomes without unverified metrics"
-      ]
     }
   ],
   tools: ["Python", "SQL", "PyTorch", "TensorFlow", "Power BI", "AWS", "Pandas", "GitHub"],
