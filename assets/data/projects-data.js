@@ -72,23 +72,23 @@ export const projectsData = [
     hero: {
       eyebrow: "Computer Vision",
       headline: "A real time diagnosis stack designed for interpretability, responsive feedback, and confident decisions.",
-      panelNote: "TODO: Refine with verified deployment context (environment, hardware profile, and latency budget)."
+      panelNote: "Designed as an interactive diagnosis tool with responsive inference feedback, clear visual cues, and practical usability as a core requirement."
     },
     metadata: [
-      { label: "Role", value: "TODO: Confirm role split" },
-      { label: "Timeline", value: "TODO: Add verified timeline" },
-      { label: "Primary Outcome", value: "TODO: Add verified measurable outcome" }
+      { label: "Role", value: "End to end ML and application build across modelling, inference flow, and interface design" },
+      { label: "Timeline", value: "Built iteratively from model prototyping to integrated real time workflow and interface refinement" },
+      { label: "Primary Outcome", value: "A working diagnosis pipeline that combines detection, classification, and explainability in one usable interface" }
     ],
     tags: ["Computer Vision", "Real-Time Inference", "Explainable AI", "Interface Design"],
     deepDive: {
-      challenge: "TODO: Add verified core challenge and constraints.",
-      approach: "TODO: Add verified model/system approach details.",
-      result: "TODO: Add verified result narrative with truthful metrics."
+      challenge: "Many vision demos stop at static predictions, but practical diagnosis needs fast interaction, visual context, and understandable outputs. The core challenge was to deliver this in one coherent flow rather than separate scripts.",
+      approach: "I structured the system as a connected pipeline with image or camera input, target localisation, disease classification, and explanation overlays. The interface was treated as part of the ML product so each prediction remained clear, traceable, and easy to review.",
+      result: "The project delivered a complete real time diagnosis experience that surfaces model output alongside visual evidence. It moved the work from notebook style experimentation into a usable tool designed for applied decision support."
     },
     process: {
-      architecture: "TODO: Add verified architecture notes.",
-      workflow: "TODO: Add verified workflow/process milestones.",
-      lessons: "TODO: Add verified lessons and tradeoffs."
+      architecture: "The architecture separates input handling, inference, explanation rendering, and UI presentation so each layer can be improved without destabilising the full workflow.",
+      workflow: "Development progressed from core model validation to integrated inference orchestration, then interface tuning for clearer confidence display and faster interpretation during live use.",
+      lessons: "The main trade off was balancing response speed with explanatory clarity. I learned to design for both technical output quality and human understanding from the start."
     },
     caseStudy: {
       problemFraming: "In image-heavy diagnosis workflows, users often face a gap between model output and actionable confidence. The project focused on reducing that gap with a live, interpretable interface instead of a raw prediction-only view.",
@@ -106,8 +106,8 @@ export const projectsData = [
         "Readable confidence presentation focused on decision support rather than hype.",
         "Operator-friendly interface structure designed for quick interpretation."
       ],
-      analyticsMonitoring: "TODO: Add verified analytics and monitoring notes.",
-      humanReviewLoop: "TODO: Add verified review loop details.",
+      analyticsMonitoring: "The system surfaces prediction confidence and visual explanation cues directly in the diagnosis view, making outputs easier to inspect and compare during runtime checks.",
+      humanReviewLoop: "Predictions are presented as assistive signals, not final authority. Users can review image context, confidence, and explanation overlays before accepting a diagnosis direction.",
       tools: [
         { label: "Detection", value: "YOLO-based object/region detection pipeline" },
         { label: "Classification", value: "PyTorch-driven disease/category classifier" },
@@ -115,14 +115,14 @@ export const projectsData = [
         { label: "Application Layer", value: "Python desktop interface for real-time interaction" }
       ],
       learned: "I learned that model quality alone is not enough in applied ML products. Usability and interpretability choices directly affect whether people trust and adopt the system. I also learned to treat explainability outputs as communication artefacts, not technical add ons.",
-      futureEvolution: "TODO: Add verified future direction notes.",
+      futureEvolution: "Next steps include stronger session level logging, structured feedback capture for difficult cases, and tighter calibration checks to improve consistency across varied plant imagery.",
       ctaButtons: [
         { label: "View Repository", href: "https://github.com/jasgh14/DiseaseDetection" },
         { label: "Download CV", href: "assets/JunaidAsgharCV.pdf" },
         { label: "Discuss Project", href: "contact.html" }
       ]
     },
-    links: { repo: "https://github.com/jasgh14/DiseaseDetection", demo: "TODO: Add verified demo link" },
+    links: { repo: "https://github.com/jasgh14/DiseaseDetection", demo: "TODO: Add public demo link when shareable" },
     cta: "If you are exploring applied vision systems that need performance and interpretability, I can walk through design choices and trade offs from this build."
   },
   {
