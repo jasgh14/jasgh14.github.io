@@ -43,10 +43,11 @@ export function setupProjectsSlider() {
     panelApproach: root.querySelector("[data-panel-approach]"),
     panelWorkflow: root.querySelector("[data-panel-workflow]"),
     panelFeatures: root.querySelector("[data-panel-features]"),
+    panelAnalytics: root.querySelector("[data-panel-analytics]"),
+    panelHumanReview: root.querySelector("[data-panel-human-review]"),
     panelTools: root.querySelector("[data-panel-tools]"),
-    panelProduct: root.querySelector("[data-panel-product]"),
-    panelInteresting: root.querySelector("[data-panel-interesting]"),
     panelLearned: root.querySelector("[data-panel-learned]"),
+    panelFuture: root.querySelector("[data-panel-future]"),
     panelCtaButtons: root.querySelector("[data-panel-cta-buttons]")
   };
 
@@ -93,9 +94,10 @@ export function setupProjectsSlider() {
       });
     }
 
-    if (ui.panelProduct) ui.panelProduct.textContent = safeText(caseStudy?.productInterface, "TODO: Add verified product/interface notes.");
-    if (ui.panelInteresting) ui.panelInteresting.textContent = safeText(caseStudy?.technicalInteresting, "TODO: Add verified technical depth notes.");
+    if (ui.panelAnalytics) ui.panelAnalytics.textContent = safeText(caseStudy?.analyticsMonitoring, "TODO: Add verified analytics and monitoring notes.");
+    if (ui.panelHumanReview) ui.panelHumanReview.textContent = safeText(caseStudy?.humanReviewLoop, "TODO: Add verified review loop details.");
     if (ui.panelLearned) ui.panelLearned.textContent = safeText(caseStudy?.learned, "TODO: Add verified learning notes.");
+    if (ui.panelFuture) ui.panelFuture.textContent = safeText(caseStudy?.futureEvolution, "TODO: Add verified future direction notes.");
 
     if (ui.panelCtaButtons) {
       const buttons = Array.isArray(caseStudy?.ctaButtons) && caseStudy.ctaButtons.length

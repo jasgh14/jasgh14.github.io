@@ -246,7 +246,49 @@
 }
 
 .page-projects .projects-showcase[data-mood="plantops"] {
-  --accent: #d39a65;
+  --accent: #63c38f;
+}
+
+.page-projects .projects-showcase[data-mood="plantops"] .projects-showcase__viewport::before {
+  opacity: 0.46;
+}
+
+.page-projects .projects-showcase[data-mood="plantops"] .project-panel__case-study {
+  position: relative;
+  padding-left: clamp(0.9rem, 2vw, 1.4rem);
+}
+
+.page-projects .projects-showcase[data-mood="plantops"] .project-panel__case-study::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 85%, #fff),
+    color-mix(in srgb, var(--accent) 28%, transparent)
+  );
+}
+
+.page-projects .projects-showcase[data-mood="plantops"] .project-panel__flow {
+  list-style: none;
+  padding-left: 0;
+  gap: 0.65rem;
+}
+
+.page-projects .projects-showcase[data-mood="plantops"] .project-panel__flow li {
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--color-border-soft));
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+  padding: 0.65rem 0.8rem;
+}
+
+.page-projects .projects-showcase[data-mood="plantops"] .project-panel__flow li::before {
+  content: "◉ ";
+  color: color-mix(in srgb, var(--accent) 85%, #fff);
 }
 
 @keyframes project-fade-slide {
