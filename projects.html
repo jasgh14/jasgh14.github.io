@@ -18,33 +18,121 @@
   <header class="site-header" data-site-header></header>
 
   <main id="main-content" class="site-main container">
-    <section id="projects-hero" class="page-section stack" data-reveal>
+    <section id="projects-hero" class="page-section projects-hero stack" data-reveal>
       <p class="eyebrow">Projects</p>
-      <h1>Featured Project Work</h1>
-      <p class="muted">Browse selected projects with case-study scaffolding for deeper technical storytelling.</p>
+      <h1>Product-Grade Case Studies</h1>
+      <p class="muted">A cinematic showcase of three core builds, with a structured shell for deeper technical storytelling.</p>
+      <p class="projects-hero__hint" id="projects-hint">Use ← → to browse</p>
     </section>
 
-    <section id="featured-slider" class="page-section slider" data-project-slider data-reveal>
-      <h2>Featured Slider</h2>
-      <article class="card stack">
-        <h3 data-featured-name>Loading…</h3>
-        <p class="muted" data-featured-summary></p>
-        <ul class="tag-list" data-featured-tags></ul>
-      </article>
-      <div class="slider__controls">
-        <button class="button button--ghost" type="button" data-prev>Previous</button>
-        <button class="button" type="button" data-next>Next</button>
+    <section
+      id="featured-slider"
+      class="page-section projects-showcase"
+      data-project-slider
+      data-reveal
+      aria-labelledby="showcase-heading"
+      aria-describedby="projects-hint"
+    >
+      <div class="projects-showcase__header">
+        <h2 id="showcase-heading">Featured Project Slider</h2>
+        <p class="muted">Exactly three featured projects with keyboard, button, and swipe navigation.</p>
       </div>
+
+      <div class="projects-showcase__progress" aria-label="Project progress">
+        <span class="projects-showcase__count" data-progress-count>1 / 3</span>
+        <div class="projects-showcase__track" role="presentation">
+          <span class="projects-showcase__bar" data-progress-bar></span>
+        </div>
+      </div>
+
+      <div class="projects-showcase__viewport">
+        <article class="project-panel stack" data-project-panel tabindex="-1" aria-live="polite">
+          <p class="project-panel__eyebrow" data-project-eyebrow>Loading…</p>
+          <h3 class="project-panel__title" data-project-name>Loading…</h3>
+          <p class="project-panel__summary muted" data-project-summary>Loading project summary…</p>
+          <p class="project-panel__description" data-project-description></p>
+          <p class="project-panel__note muted" data-project-note></p>
+        </article>
+      </div>
+
+      <div class="projects-showcase__controls">
+        <button class="button button--ghost" type="button" data-prev aria-label="Show previous project">
+          ← Previous
+        </button>
+        <button class="button" type="button" data-next aria-label="Show next project">
+          Next →
+        </button>
+      </div>
+      <p class="sr-only" aria-live="polite" data-project-live></p>
+    </section>
+
+    <section id="project-metadata" class="page-section project-metadata stack" data-reveal>
+      <h2>Project Metadata Strip</h2>
+      <dl class="project-metadata__grid" data-project-metadata>
+        <div class="project-metadata__item">
+          <dt>Role</dt>
+          <dd>TODO: Add verified role details.</dd>
+        </div>
+        <div class="project-metadata__item">
+          <dt>Timeline</dt>
+          <dd>TODO: Add verified timeline details.</dd>
+        </div>
+        <div class="project-metadata__item">
+          <dt>Primary Outcome</dt>
+          <dd>TODO: Add verified outcomes.</dd>
+        </div>
+      </dl>
     </section>
 
     <section id="project-case-study" class="page-section case-study stack" data-reveal>
-      <h2>Project Case-Study Area</h2>
-      <p class="muted" data-case-study>TODO: Case-study content will render here.</p>
+      <h2>Case Study Deep Dive</h2>
+      <div class="case-study__grid">
+        <article class="detail-card stack">
+          <h3>Challenge</h3>
+          <p data-deep-challenge>TODO: Add verified challenge notes.</p>
+        </article>
+        <article class="detail-card stack">
+          <h3>Approach</h3>
+          <p data-deep-approach>TODO: Add verified approach notes.</p>
+        </article>
+        <article class="detail-card stack">
+          <h3>Result</h3>
+          <p data-deep-result>TODO: Add verified result notes.</p>
+        </article>
+      </div>
     </section>
 
-    <section id="project-archive" class="page-section" data-reveal>
-      <h2>Project Archive</h2>
-      <div class="card-grid" data-project-archive></div>
+    <section id="project-stack" class="page-section stack-section stack" data-reveal>
+      <h2>Technology Stack</h2>
+      <ul class="tag-list project-stack__tags" data-project-tags>
+        <li>TODO: stack</li>
+      </ul>
+    </section>
+
+    <section id="project-process" class="page-section process-section stack" data-reveal>
+      <h2>Architecture · Process · Lessons</h2>
+      <div class="process-section__grid">
+        <article class="detail-card stack">
+          <h3>Architecture</h3>
+          <p data-process-architecture>TODO: Add verified architecture notes.</p>
+        </article>
+        <article class="detail-card stack">
+          <h3>Process</h3>
+          <p data-process-workflow>TODO: Add verified process notes.</p>
+        </article>
+        <article class="detail-card stack">
+          <h3>Lessons</h3>
+          <p data-process-lessons>TODO: Add verified lessons.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="project-cta" class="page-section project-cta stack" data-reveal>
+      <h2>Continue the Conversation</h2>
+      <p class="muted" data-project-cta>TODO: Add verified CTA aligned to the selected project.</p>
+      <p>
+        <a class="button button--ghost" href="contact.html">Contact</a>
+      </p>
     </section>
   </main>
 
@@ -53,21 +141,7 @@
   <script type="module" src="assets/js/main.js"></script>
   <script type="module">
     import { setupProjectsSlider } from "./assets/js/projects-slider.js";
-    import { projectsData } from "./assets/data/projects-data.js";
-
     setupProjectsSlider();
-
-    const archive = document.querySelector("[data-project-archive]");
-    if (archive) {
-      archive.innerHTML = projectsData.map((project) => `
-        <article class="card stack">
-          <h3>${project.name || "TODO: Project title"}</h3>
-          <p class="muted">${project.description || "TODO: Add verified description"}</p>
-          <ul class="tag-list">${(project.tags || ["TODO: tag"]).map((tag) => `<li>${tag}</li>`).join("")}</ul>
-          <p><a href="${project.links?.repo || '#'}" target="_blank" rel="noreferrer">Repository</a></p>
-        </article>
-      `).join("");
-    }
   </script>
 </body>
 </html>
