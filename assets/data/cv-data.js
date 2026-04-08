@@ -41,12 +41,14 @@ export const cvData = {
       program: "BSc Computer Science",
       start: "September 2021",
       end: "September 2024",
+      notes: "Project: E-commerce analytics platform delivering actionable insights from market and sales data using ML and SQL on AWS." 
     },
     {
       institution: "Queen Mary University of London",
       program: "MSc Machine Learning for Visual Data Analytics",
       start: "September 2024",
       end: "September 2025",
+      notes: "Thesis: Live plant disease detection software utilising core machine learning techniques to provide a multi label explainable AI solution to help farmers and gardeners easily catch crop disease"
     }
   ],
   projects: [
@@ -79,7 +81,6 @@ export const cvData = {
       highlights: [
         "Built as an applied AI monitoring concept for agricultural workflows",
         "Frames disease analysis as a repeatable and automatable process",
-        "TODO: Add verified technical stack and deployment context"
       ],
       repo: "TODO: Add verified PlantOps repository"
     }
