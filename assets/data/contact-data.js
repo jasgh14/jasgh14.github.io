@@ -1,9 +1,9 @@
 export const contactData = {
-  intro: "Whether you’re hiring for AI/ML or analytics roles, exploring collaboration, or discussing portfolio work, I’d be glad to connect.",
+  intro: "If you are hiring for machine learning or analytics roles, exploring collaboration, or reviewing project work, I would be glad to connect.",
   cards: [
     {
       title: "Email",
-      description: "Best for direct conversations around roles, collaboration, and project detail.",
+      description: "Best for direct conversations about roles, collaboration, and project detail.",
       href: "mailto:Junaid453@outlook.com",
       displayValue: "Junaid453@outlook.com",
       label: "Send email",
@@ -12,7 +12,7 @@ export const contactData = {
     },
     {
       title: "GitHub",
-      description: "Browse code, project structure, and implementation direction.",
+      description: "Review code, project structure, and implementation direction.",
       href: "https://github.com/jasgh14",
       displayValue: "github.com/jasgh14",
       label: "View profile",
@@ -21,7 +21,7 @@ export const contactData = {
     },
     {
       title: "LinkedIn",
-      description: "Professional profile, background, and networking context.",
+      description: "Professional profile, background, and current context.",
       href: "https://www.linkedin.com/in/junaid-asghar453/",
       displayValue: "linkedin.com/in/junaid-asghar453",
       label: "Open LinkedIn",
@@ -30,7 +30,7 @@ export const contactData = {
     },
     {
       title: "PDF CV",
-      description: "Download the latest portfolio CV for a concise role and project overview.",
+      description: "Download the latest CV for a concise overview of roles and projects.",
       href: "assets/JunaidAsgharCV.pdf",
       displayValue: "assets/JunaidAsgharCV.pdf",
       label: "Download CV",
@@ -38,13 +38,13 @@ export const contactData = {
     }
   ],
   availability: {
-    summary: "Open to meaningful conversations on AI/ML and analytics work where applied systems and practical outcomes are valued.",
+    summary: "Open to conversations on machine learning and analytics work where practical systems and clear outcomes are valued.",
     points: [
-      "Role discussions for AI / ML positions.",
-      "Data analytics opportunities requiring strong technical and business framing.",
+      "Role discussions for machine learning positions.",
+      "Data analytics opportunities that need strong technical judgement.",
       "Project collaborations with clear ownership and delivery expectations."
     ],
-    workPreference: "Work preference: open to remote-first collaboration and hybrid opportunities depending on team needs."
+    workPreference: "Work preference, open to remote collaboration and hybrid opportunities depending on team needs."
   },
   topics: [
     "AI / ML roles",
