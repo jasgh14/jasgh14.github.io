@@ -1,5 +1,69 @@
 export const projectsData = [
   {
+    slug: "plantops",
+    name: "PlantOps: Automated Plant Disease Monitoring & Analysis System",
+    mood: "plantops",
+    summary: "A pipeline-first ML operations project for moving plant imagery from ingestion to inference, analytics, human review, and actionable reporting.",
+    description: "PlantOps is positioned as an operational continuation project: less about a single model demo and more about building a dependable disease-monitoring system that can be extended over time.",
+    hero: {
+      eyebrow: "Flagship · ML Systems",
+      headline: "A systems-oriented plant health platform that connects ingestion, inference, storage, analytics, review, and reporting into one practical loop.",
+      panelNote: "Flagship focus: architecture discipline, automation, and decision-support workflows instead of standalone classifier output."
+    },
+    metadata: [
+      { label: "Role", value: "ML / Data Systems Builder (end-to-end project development)" },
+      { label: "Timeline", value: "Iterative system build and refinement across pipeline, analytics, and review loop design" },
+      { label: "Primary Outcome", value: "A structured operations concept for continuous disease monitoring, triage, and reporting" }
+    ],
+    tags: ["Computer Vision", "ML Systems", "Data Pipeline", "Analytics", "Human-in-the-Loop", "Automation"],
+    deepDive: {
+      challenge: "Plant health checks are often reactive, manual, and difficult to scale across time and locations. The core challenge was designing a practical system that can continuously ingest imagery, run diagnosis workflows, and surface the right cases for human follow-up.",
+      approach: "I approached PlantOps as a modular ML product: clearly separated ingestion, inference, storage, analytics, and review responsibilities, then connected them with predictable handoff contracts so the system can evolve without full rewrites.",
+      result: "The result is a system blueprint and working project direction that supports operational monitoring, not just one-off predictions. The emphasis is on reliable flow, traceability, and extensibility while keeping claims realistic."
+    },
+    process: {
+      architecture: "The architecture uses layered responsibilities: acquisition layer for image events, inference services for disease signals, storage for raw and derived artifacts, analytics models for trend/quality visibility, and a review/reporting layer for action-taking.",
+      workflow: "Work progressed in pipeline order: input contracts, inference orchestration, persistence strategy, analytics definitions, then review and reporting surfaces. This reduced coupling and made each layer easier to validate.",
+      lessons: "Strong ML systems rely on operational design choices as much as model logic. Queue behavior, schema clarity, and exception handling determine whether the system remains usable as volume and complexity increase."
+    },
+    caseStudy: {
+      problemFraming: "Plant disease management benefits from early detection, but teams need more than a prediction label—they need a consistent operational flow for triage, context, and follow-through. PlantOps addresses this by framing diagnosis as a pipeline and decision-support problem.",
+      systemApproach: "PlantOps uses a blueprint-style layered architecture with explicit boundaries between ingestion, model inference, persistence, analytics computation, and human review. Each layer exposes structured outputs so monitoring and downstream automation stay reliable.",
+      pipeline: [
+        "Ingestion: accept image streams/uploads with source metadata and timestamp normalization.",
+        "Inference: run disease detection/classification with confidence capture and inference artifact logging.",
+        "Storage: persist raw images, predictions, and derived feature summaries in queryable structures.",
+        "Analytics: aggregate health trends, confidence distributions, and anomaly slices for review dashboards.",
+        "Review: route uncertain or high-impact cases into a human validation queue.",
+        "Reporting: publish operational summaries, alerts, and routine status outputs for stakeholders."
+      ],
+      features: [
+        "Automated ingestion-to-inference handoff with repeatable processing contracts.",
+        "Rule-based queueing for uncertain predictions and priority condition routing.",
+        "Scheduled reporting hooks for recurring health and exception summaries.",
+        "Pipeline-friendly data structures intended for future orchestrator integration."
+      ],
+      analyticsMonitoring: "The analytics layer focuses on operational awareness: trend views for disease categories over time, confidence band monitoring, data freshness checks, and queue pressure visibility. The intent is to support decisions about model quality, intervention timing, and workflow health.",
+      humanReviewLoop: "A dedicated review queue captures low-confidence or ambiguous cases for human validation. Reviewer feedback is preserved as structured annotations so it can improve labeling quality, guide threshold tuning, and inform future retraining cycles.",
+      tools: [
+        { label: "ML Inference", value: "Python-based CV inference pipeline with modular model stage boundaries" },
+        { label: "Data Layer", value: "Structured storage approach for image artifacts, predictions, and analytics-ready outputs" },
+        { label: "Analytics", value: "Python + SQL-style metric modeling for trend, confidence, and operational views" },
+        { label: "Automation", value: "Event and schedule-oriented processing design for recurring monitoring/reporting tasks" },
+        { label: "Interface", value: "Dashboard/review-oriented presentation model for triage and decision support" }
+      ],
+      learned: "I learned to treat ML projects as long-lived systems with feedback loops, not static demos. Designing for observability, reviewability, and operational continuity creates much stronger product value than model output alone.",
+      futureEvolution: "Next evolution paths include stronger active-learning workflows, richer alert policy controls, environment-specific deployment profiles, and expanded integrations for field operations and stakeholder reporting.",
+      ctaButtons: [
+        { label: "View GitHub", href: "https://github.com/jasgh14" },
+        { label: "Download CV", href: "assets/JunaidAsgharCV.pdf" },
+        { label: "Discuss PlantOps", href: "contact.html" }
+      ]
+    },
+    links: { repo: "https://github.com/jasgh14" },
+    cta: "If you're building ML systems that need monitoring, feedback loops, and production-minded pipeline design, I’d be glad to discuss how PlantOps can be extended further."
+  },
+  {
     slug: "real-time-visual-diagnosis",
     name: "Real-Time Visual Diagnosis System",
     mood: "diagnosis",
@@ -42,14 +106,16 @@ export const projectsData = [
         "Readable confidence presentation focused on decision support rather than hype.",
         "Operator-friendly interface structure designed for quick interpretation."
       ],
+      analyticsMonitoring: "TODO: Add verified analytics and monitoring notes.",
+      humanReviewLoop: "TODO: Add verified review loop details.",
       tools: [
         { label: "Detection", value: "YOLO-based object/region detection pipeline" },
         { label: "Classification", value: "PyTorch-driven disease/category classifier" },
         { label: "Explainability", value: "XAI overlays (e.g., saliency/attention-style visual cues)" },
         { label: "Application Layer", value: "Python desktop interface for real-time interaction" }
       ],
-      technicalInteresting: "The most interesting challenge was orchestrating multiple model stages while preserving a fluid interface. Balancing throughput, visual clarity, and explainability required careful decisions about what to compute, when to render it, and how to keep cognitive load low for the user.",
       learned: "I learned that model quality alone is not enough in applied ML products. Usability and interpretability design choices directly affect whether people trust and adopt the system. I also learned to treat explainability outputs as communication artifacts, not just technical add-ons.",
+      futureEvolution: "TODO: Add verified future direction notes.",
       ctaButtons: [
         { label: "View Repository", href: "https://github.com/jasgh14/DiseaseDetection" },
         { label: "Download CV", href: "assets/JunaidAsgharCV.pdf" },
@@ -102,15 +168,16 @@ export const projectsData = [
         "Customer segmentation views that support retention and value-focused decision paths.",
         "Exception-oriented reporting patterns to surface outliers, not just averages."
       ],
+      analyticsMonitoring: "The monitoring layer tracks KPI consistency, data freshness, and reporting anomalies so stakeholders can trust recurring decision workflows.",
+      humanReviewLoop: "Human review occurs as business-user validation cycles where anomalies and KPI definitions are audited and refined before wider reporting adoption.",
       tools: [
         { label: "Querying", value: "SQL for transformation logic and analytical slicing" },
         { label: "Data Shaping", value: "Python + Pandas for cleaning, enrichment, and data quality checks" },
         { label: "Data Platform", value: "AWS-hosted storage/processing environment for structured workflows" },
         { label: "Reporting", value: "Power BI dashboards with reusable KPI definitions and filters" }
       ],
-      productInterface: "The interface layer is organized like a compact analytics workspace: an executive overview for high-level trend checks, followed by focused pages for product performance, customer behavior, and period comparison. Visuals prioritize legibility, context labels, and decision cues over decorative complexity.",
-      technicalInteresting: "A technically meaningful part of this build was balancing flexibility with consistency: enabling exploratory cuts while preventing metric drift. That required careful grain selection, explicit KPI definitions, and filter logic that behaves predictably across dashboard pages.",
       learned: "I learned to design analytics outputs as decision systems, not static reports. Clear metric contracts, thoughtful drill paths, and interface discipline are what turn data work into real business utility.",
+      futureEvolution: "Future evolution includes expanded forecasting modules, scenario analysis views, and richer self-serve exploration with governed metric definitions.",
       ctaButtons: [
         { label: "View GitHub", href: "https://github.com/jasgh14" },
         { label: "Download CV", href: "assets/JunaidAsgharCV.pdf" },
@@ -119,45 +186,5 @@ export const projectsData = [
     },
     links: { repo: "https://github.com/jasgh14", demo: "TODO: Add verified dashboard link if publicly shareable." },
     cta: "If you need a practical analytics layer that supports better pricing, assortment, and performance decisions, I can walk through the modeling and dashboard design approach used here."
-  },
-  {
-    slug: "plantops",
-    name: "PlantOps: Automated Plant Disease Monitoring & Analysis System",
-    mood: "plantops",
-    summary: "Automated monitoring concept for plant disease analysis workflows with computer vision support.",
-    description: "TODO: Add verified PlantOps project summary, stack, and scope.",
-    hero: {
-      eyebrow: "AgriTech",
-      headline: "A monitoring concept for proactive plant health operations.",
-      panelNote: "TODO: Add verified environment, hardware, or deployment context."
-    },
-    metadata: [
-      { label: "Role", value: "TODO: Confirm role split" },
-      { label: "Timeline", value: "TODO: Add verified timeline" },
-      { label: "Primary Outcome", value: "TODO: Add verified measurable outcome" }
-    ],
-    tags: ["TODO: stack", "TODO: domain"],
-    deepDive: {
-      challenge: "TODO: Add verified monitoring challenge and constraints.",
-      approach: "TODO: Add verified sensing/computer vision pipeline details.",
-      result: "TODO: Add verified result narrative with truthful metrics."
-    },
-    process: {
-      architecture: "TODO: Add verified architecture notes.",
-      workflow: "TODO: Add verified workflow/process milestones.",
-      lessons: "TODO: Add verified lessons and tradeoffs."
-    },
-    caseStudy: {
-      problemFraming: "TODO: Add verified problem framing.",
-      systemApproach: "TODO: Add verified system approach.",
-      pipeline: ["TODO: Add verified pipeline stage."],
-      features: ["TODO: Add verified feature."],
-      tools: [{ label: "TODO", value: "Add verified tooling." }],
-      technicalInteresting: "TODO: Add verified technical depth notes.",
-      learned: "TODO: Add verified learning notes.",
-      ctaButtons: [{ label: "Contact", href: "contact.html" }]
-    },
-    links: { repo: "TODO: Add verified PlantOps repository" },
-    cta: "TODO: Add verified call-to-action text for this case study."
   }
 ];
