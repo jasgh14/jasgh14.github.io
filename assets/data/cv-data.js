@@ -37,11 +37,16 @@ export const cvData = {
   ],
   education: [
     {
-      institution: "TODO: Confirm institution name",
+      institution: "Queen Mary University of London",
+      program: "BSc Computer Science",
+      start: "September 2021",
+      end: "September 2024",
+    },
+    {
+      institution: "Queen Mary University of London",
       program: "MSc Machine Learning for Visual Data Analytics",
-      start: "TODO: Confirm start date",
-      end: "TODO: Confirm completion date",
-      notes: "Verified degree title retained. Add final award details or distinction only if confirmed."
+      start: "September 2024",
+      end: "September 2025",
     }
   ],
   projects: [
@@ -77,19 +82,6 @@ export const cvData = {
         "TODO: Add verified technical stack and deployment context"
       ],
       repo: "TODO: Add verified PlantOps repository"
-    }
-  ],
-  experience: [
-    {
-      org: "TODO: Add verified organization",
-      title: "TODO: Add verified practical role",
-      period: "TODO: Add verified period",
-      type: "Practical work",
-      bullets: [
-        "TODO: Add factual contribution based on verified records",
-        "TODO: Add tooling used for that practical assignment",
-        "TODO: Add outcomes without unverified metrics"
-      ]
     }
   ],
   tools: ["Python", "SQL", "PyTorch", "TensorFlow", "Power BI", "AWS", "Pandas", "GitHub"],
