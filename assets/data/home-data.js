@@ -51,11 +51,15 @@ export const homeData = {
   ],
   educationTeaser: [
     {
-      title: "MSc Machine Learning for Visual Data Analytics",
-      detail: "Institution details are maintained on the CV page for verified updates."
+      title: "BSc Computer Science",
+      detail: "More general centered on machine learning final year"
     },
     {
-      title: "Project-led applied practice",
+      title: "MSc Machine Learning for Visual Data Analytics",
+      detail: "Largely computer vision and NLP focused."
+    },
+    {
+      title: "Project and applied practice",
       detail: "Built around computer vision, analytics, explainability, and automation systems."
     }
   ],
