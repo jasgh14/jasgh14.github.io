@@ -144,17 +144,8 @@ export function setupProjectsSlider() {
 
     if (panel) {
       panel.classList.remove("is-transitioning");
-      panel.removeAttribute("data-direction");
-
-      if (!prefersReducedMotion) {
-        panel.dataset.direction = direction;
-        void panel.offsetWidth;
-        panel.classList.add("is-transitioning");
-      }
-
-      if (shouldFocusPanel) {
-        panel.focus({ preventScroll: true });
-      }
+      void panel.offsetWidth;
+      panel.classList.add("is-transitioning");
     }
 
     root.dataset.mood = safeText(project.mood, "diagnosis");
