@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Junaid Asghar | Contact</title>
-  <meta name="description" content="Contact options and direct action cards." />
+  <meta name="description" content="Intentional contact pathways for collaboration, opportunities, and technical discussions." />
   <link rel="stylesheet" href="assets/css/theme.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
@@ -18,34 +18,47 @@
   <header class="site-header" data-site-header></header>
 
   <main id="main-content" class="site-main container">
-    <section id="contact-intro" class="page-section stack" data-reveal>
+    <section id="contact-intro" class="page-section section-header" data-reveal>
       <p class="eyebrow">Contact</p>
-      <h1>Direct Contact Pathways</h1>
+      <h1>Let’s connect with purpose.</h1>
       <p class="muted" data-contact-intro></p>
     </section>
 
-    <section id="contact-actions" class="page-section" data-reveal>
-      <h2>Action Cards</h2>
+    <section id="contact-actions" class="page-section stack" data-reveal>
+      <h2>Primary pathways</h2>
+      <p class="muted">Choose the channel that matches your goal—quick outreach, technical review, or professional context.</p>
       <div class="contact-cards" data-contact-cards></div>
     </section>
 
-    <section id="availability" class="page-section stack" data-reveal>
-      <h2>Availability</h2>
-      <p class="muted" data-availability></p>
+    <section id="collaboration" class="page-section contact-meta-grid" data-reveal>
+      <article class="panel panel--glass stack" aria-labelledby="availability-title">
+        <h2 id="availability-title">Availability & collaboration</h2>
+        <p class="muted" data-availability-summary></p>
+        <ul class="bullet-list stack" data-availability-points></ul>
+        <p class="muted" data-work-preference></p>
+      </article>
+
+      <article class="panel stack" aria-labelledby="topics-title">
+        <h2 id="topics-title">Reasons to reach out</h2>
+        <p class="muted">I’m especially open to conversations around:</p>
+        <ul class="topic-list" data-contact-topics></ul>
+      </article>
     </section>
   </main>
+
+  <div class="copy-toast" role="status" aria-live="polite" data-copy-toast hidden></div>
 
   <footer class="site-footer" data-site-footer></footer>
 
   <script type="module" src="assets/js/main.js"></script>
   <script type="module">
     import { contactData } from "./assets/data/contact-data.js";
-    import { renderContactCards } from "./assets/js/contact.js";
+    import { renderContactPage } from "./assets/js/contact.js";
 
     const intro = document.querySelector("[data-contact-intro]");
     if (intro) intro.textContent = contactData.intro || "TODO: Add verified contact intro.";
 
-    renderContactCards();
+    renderContactPage();
   </script>
 </body>
 </html>
