@@ -44,6 +44,7 @@ export function setupProjectsSlider() {
     panelWorkflow: root.querySelector("[data-panel-workflow]"),
     panelFeatures: root.querySelector("[data-panel-features]"),
     panelTools: root.querySelector("[data-panel-tools]"),
+    panelProduct: root.querySelector("[data-panel-product]"),
     panelInteresting: root.querySelector("[data-panel-interesting]"),
     panelLearned: root.querySelector("[data-panel-learned]"),
     panelCtaButtons: root.querySelector("[data-panel-cta-buttons]")
@@ -92,6 +93,7 @@ export function setupProjectsSlider() {
       });
     }
 
+    if (ui.panelProduct) ui.panelProduct.textContent = safeText(caseStudy?.productInterface, "TODO: Add verified product/interface notes.");
     if (ui.panelInteresting) ui.panelInteresting.textContent = safeText(caseStudy?.technicalInteresting, "TODO: Add verified technical depth notes.");
     if (ui.panelLearned) ui.panelLearned.textContent = safeText(caseStudy?.learned, "TODO: Add verified learning notes.");
 

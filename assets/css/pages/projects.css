@@ -47,6 +47,8 @@
 }
 
 .page-projects .projects-showcase__viewport {
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-border-soft);
   background: radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 42%),
@@ -54,6 +56,18 @@
   min-block-size: 24rem;
   padding: clamp(1rem, 3vw, 2rem);
   box-shadow: var(--shadow-lg);
+}
+
+.page-projects .projects-showcase__viewport::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, color-mix(in srgb, var(--accent) 12%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--accent) 9%, transparent) 1px, transparent 1px);
+  background-size: 2.75rem 2.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--easing-standard);
 }
 
 .page-projects .project-panel {
@@ -225,6 +239,10 @@
 
 .page-projects .projects-showcase[data-mood="analytics"] {
   --accent: #7cb97d;
+}
+
+.page-projects .projects-showcase[data-mood="analytics"] .projects-showcase__viewport::before {
+  opacity: 0.35;
 }
 
 .page-projects .projects-showcase[data-mood="plantops"] {
