@@ -7,8 +7,8 @@ export function renderProjectsPage() {
     const featured = projectsData.slice(0, 3);
     framingMount.innerHTML = featured
       .map(
-        (project) => `
-        <article class="project-framing__card">
+        (project, index) => `
+        <article class="project-framing__card" data-framing-card data-project-index="${index}">
           <h3>${project.name || "TODO: Add project name"}</h3>
           <p>${project.summary || "TODO: Add verified project framing summary."}</p>
         </article>
