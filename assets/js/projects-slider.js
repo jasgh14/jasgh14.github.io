@@ -23,6 +23,8 @@ export function setupProjectsSlider() {
   const progressCount = root.querySelector("[data-progress-count]");
   const progressBar = root.querySelector("[data-progress-bar]");
   const liveRegion = root.querySelector("[data-project-live]");
+  const prevButton = root.querySelector("[data-prev]");
+  const nextButton = root.querySelector("[data-next]");
 
   const ui = {
     eyebrow: root.querySelector("[data-project-eyebrow]"),
@@ -125,6 +127,7 @@ export function setupProjectsSlider() {
       panel.classList.remove("is-transitioning");
       void panel.offsetWidth;
       panel.classList.add("is-transitioning");
+      panel.focus();
     }
 
     root.dataset.mood = safeText(project.mood, "diagnosis");
@@ -143,6 +146,9 @@ export function setupProjectsSlider() {
     if (progressCount) progressCount.textContent = `${currentIndex + 1} / ${featured.length}`;
     if (progressBar) progressBar.style.inlineSize = `${((currentIndex + 1) / featured.length) * 100}%`;
 
+    if (prevButton) prevButton.setAttribute("aria-label", `Show previous project (currently ${safeText(project.name, "project")})`);
+    if (nextButton) nextButton.setAttribute("aria-label", `Show next project (currently ${safeText(project.name, "project")})`);
+
     renderMetadata(project.metadata);
     renderTags(project.tags);
     renderPanelCaseStudy(project.caseStudy);
@@ -160,11 +166,12 @@ export function setupProjectsSlider() {
     paint(currentIndex - 1, { announce: true });
   }
 
-  root.querySelector("[data-next]")?.addEventListener("click", next);
-  root.querySelector("[data-prev]")?.addEventListener("click", prev);
+  nextButton?.addEventListener("click", next);
+  prevButton?.addEventListener("click", prev);
 
-  document.addEventListener("keydown", (event) => {
+  root.addEventListener("keydown", (event) => {
     if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
+    if (!root.contains(document.activeElement)) return;
     if (event.key === "ArrowRight") {
       event.preventDefault();
       next();
