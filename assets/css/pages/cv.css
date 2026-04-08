@@ -1,5 +1,7 @@
-.page-cv {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  .page-cv {
+    scroll-behavior: smooth;
+  }
 }
 
 .page-cv .cv-layout {
