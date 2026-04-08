@@ -10,10 +10,30 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-bg);
+  min-height: 100vh;
+  background:
+    radial-gradient(70% 58% at 88% -6%, rgba(127, 168, 255, 0.2), transparent 72%),
+    radial-gradient(60% 46% at -14% 20%, rgba(119, 224, 203, 0.15), transparent 76%),
+    linear-gradient(180deg, var(--color-bg-elevated), var(--color-bg));
   color: var(--color-text);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  font-size: var(--text-base);
+  line-height: var(--leading-base);
+  letter-spacing: 0.01em;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at center, black 12%, transparent 82%);
+  z-index: -1;
 }
 
 img {
@@ -22,11 +42,18 @@ img {
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-accent-strong);
+  text-underline-offset: 0.14em;
+}
+
+a:hover {
+  color: var(--color-text);
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
   outline: none;
   box-shadow: var(--focus-ring);
 }
@@ -39,6 +66,59 @@ p {
   margin-top: 0;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: var(--leading-tight);
+}
+
+h1 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-5);
+}
+
+h2 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-4);
+}
+
+h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+}
+
+h4 {
+  font-size: var(--text-md);
+  margin-bottom: var(--space-2);
+}
+
+p,
+li {
+  color: var(--color-text-soft);
+}
+
 main {
   min-height: 60vh;
+}
+
+@media (max-width: 700px) {
+  body {
+    background:
+      radial-gradient(80% 50% at 82% -6%, rgba(127, 168, 255, 0.14), transparent 72%),
+      radial-gradient(70% 45% at -20% 24%, rgba(119, 224, 203, 0.12), transparent 74%),
+      linear-gradient(180deg, var(--color-bg-elevated), var(--color-bg));
+  }
+
+  body::before {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
