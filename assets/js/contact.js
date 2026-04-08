@@ -1,4 +1,5 @@
 import { contactData } from "../data/contact-data.js";
+import { observeRevealElements } from "./reveal.js";
 
 export function renderContactCards() {
   const mount = document.querySelector("[data-contact-cards]");
@@ -16,6 +17,8 @@ export function renderContactCards() {
     `
     )
     .join("");
+
+  observeRevealElements(mount.querySelectorAll("[data-reveal]"));
 
   const availability = document.querySelector("[data-availability]");
   if (availability) availability.textContent = contactData.availability || "TODO: Add availability.";
