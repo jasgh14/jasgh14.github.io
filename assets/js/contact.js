@@ -117,6 +117,9 @@ export function renderContactCards() {
 }
 
 export function renderContactPage() {
+  const intro = document.querySelector("[data-contact-intro]");
+  if (intro) intro.textContent = contactData.intro || "TODO: Add verified contact intro.";
+
   renderContactCards();
   renderAvailability();
   renderTopics();

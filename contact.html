@@ -62,12 +62,7 @@
 
   <script type="module" src="assets/js/main.js"></script>
   <script type="module">
-    import { contactData } from "./assets/data/contact-data.js";
     import { renderContactPage } from "./assets/js/contact.js";
-
-    const intro = document.querySelector("[data-contact-intro]");
-    if (intro) intro.textContent = contactData.intro || "TODO: Add verified contact intro.";
-
     renderContactPage();
   </script>
 </body>

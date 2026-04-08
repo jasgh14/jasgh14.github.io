@@ -49,12 +49,12 @@
       </div>
 
       <div class="hero__content">
-        <p class="eyebrow hero__kicker" data-stagger>Applied AI Systems</p>
-        <h1 class="hero__name" data-stagger>Junaid Asghar</h1>
-        <p class="hero__title" data-stagger>
+        <p class="eyebrow hero__kicker" data-stagger data-hero-kicker>Applied AI Systems</p>
+        <h1 class="hero__name" data-stagger data-hero-name>Junaid Asghar</h1>
+        <p class="hero__title" data-stagger data-hero-title>
           Machine learning engineer focused on computer vision, analytics, and robust end-to-end AI delivery.
         </p>
-        <p class="hero__intro muted" data-stagger>
+        <p class="hero__intro muted" data-stagger data-hero-intro>
           I build practical systems that connect model development, evaluation, and usable interfaces—so insights can move beyond notebooks into dependable workflows.
         </p>
 
@@ -68,7 +68,7 @@
           <li><a href="https://github.com/jasgh14" target="_blank" rel="noreferrer" aria-label="GitHub profile (opens in a new tab)">GitHub</a></li>
         </ul>
 
-        <p class="hero__microcopy" data-stagger>Built around reproducible pipelines, interpretable outputs, and measurable evaluation.</p>
+        <p class="hero__microcopy" data-stagger data-hero-microcopy>Built around reproducible pipelines, interpretable outputs, and measurable evaluation.</p>
       </div>
 
       <a class="hero__scroll-cue" href="#featured-spotlight" aria-label="Scroll to featured projects">
@@ -90,23 +90,7 @@
         <p class="eyebrow">Selected Focus Areas</p>
         <h2>An editorial lens on the kinds of systems I keep returning to.</h2>
       </div>
-      <div class="focus-editorial">
-        <article class="focus-editorial__item" data-stagger>
-          <p class="focus-editorial__label">System Design</p>
-          <h3>I prioritize architecture before model polish.</h3>
-          <p>I focus on composable pipelines, observability, and interfaces that remain understandable as projects grow.</p>
-        </article>
-        <article class="focus-editorial__item" data-stagger>
-          <p class="focus-editorial__label">Computer Vision</p>
-          <h3>Visual AI with transparent outputs.</h3>
-          <p>My preferred direction blends detection/classification with explainability so predictions are easier to review and trust.</p>
-        </article>
-        <article class="focus-editorial__item" data-stagger>
-          <p class="focus-editorial__label">Analytics</p>
-          <h3>Reporting systems with clear metric contracts.</h3>
-          <p>I build analytics layers that emphasize consistent KPI definitions, clean transformations, and decision-ready views.</p>
-        </article>
-      </div>
+      <div class="focus-editorial" data-home-focus></div>
     </section>
 
     <section id="now-building" class="page-section now-building" data-reveal>
@@ -117,19 +101,11 @@
       <div class="now-building__grid">
         <article class="now-card" data-stagger>
           <h3>Building</h3>
-          <ul>
-            <li>Production-minded project narratives for the three featured systems.</li>
-            <li>Reusable pipeline components for ingestion, inference, and review loops.</li>
-            <li>Improved technical storytelling that stays faithful to verified work.</li>
-          </ul>
+          <ul data-now-building></ul>
         </article>
         <article class="now-card" data-stagger>
           <h3>Learning</h3>
-          <ul>
-            <li>Stronger observability patterns for long-running ML workflows.</li>
-            <li>More robust model evaluation around failure modes and uncertainty handling.</li>
-            <li>Clearer UX patterns for analytics-first technical products.</li>
-          </ul>
+          <ul data-now-learning></ul>
         </article>
       </div>
     </section>
@@ -139,13 +115,7 @@
         <p class="eyebrow">Working Stack</p>
         <h2>Tools I use repeatedly across applied ML and analytics delivery.</h2>
       </div>
-      <div class="stack-strip">
-        <article class="stack-strip__group"><h3>Languages</h3><ul><li>Python</li><li>SQL</li></ul></article>
-        <article class="stack-strip__group"><h3>ML / Data</h3><ul><li>PyTorch</li><li>TensorFlow</li><li>Pandas</li></ul></article>
-        <article class="stack-strip__group"><h3>Analytics</h3><ul><li>Power BI</li><li>ETL Design</li></ul></article>
-        <article class="stack-strip__group"><h3>Frameworks</h3><ul><li>YOLOv8</li><li>PyQt</li></ul></article>
-        <article class="stack-strip__group"><h3>Deployment / Workflow</h3><ul><li>AWS</li><li>Experiment Tracking</li></ul></article>
-      </div>
+      <div class="stack-strip" data-home-stack></div>
     </section>
 
     <section id="experience-education" class="page-section" data-reveal>
@@ -153,16 +123,7 @@
         <p class="eyebrow">Education Snapshot</p>
         <h2>A concise timeline snapshot.</h2>
       </div>
-      <ol class="timeline timeline--teaser">
-        <li class="timeline__item">
-          <h3>MSc Machine Learning for Visual Data Analytics</h3>
-          <p class="muted">Institution details are maintained on the CV page for verified updates.</p>
-        </li>
-        <li class="timeline__item">
-          <h3>Project-led applied practice</h3>
-          <p class="muted">Built around computer vision, analytics, explainability, and automation systems.</p>
-        </li>
-      </ol>
+      <ol class="timeline timeline--teaser" data-education-teaser></ol>
       <p><a class="button button--ghost" href="cv.html">View complete CV timeline</a></p>
     </section>
 
@@ -172,10 +133,7 @@
         <h2>From data and experimentation to interface and delivery.</h2>
       </div>
       <article class="approach-panel">
-        <p>
-          I approach projects as systems: define the signal, validate assumptions, build models with clear diagnostics, and package outcomes into interfaces people can actually use.
-          The goal is practical ML delivery—reliable, explainable, and maintainable.
-        </p>
+        <p data-home-approach></p>
       </article>
     </section>
 
@@ -193,42 +151,8 @@
 
   <script type="module" src="assets/js/main.js"></script>
   <script type="module">
-    import { projectsData } from "./assets/data/projects-data.js";
-
-    const spotlightNames = [
-      "Real-Time Visual Diagnosis System",
-      "E-commerce Analytics Platform",
-      "PlantOps: Automated Plant Disease Monitoring & Analysis System"
-    ];
-
-    const mount = document.querySelector("[data-home-projects]");
-    if (mount) {
-      const spotlightProjects = spotlightNames
-        .map((name) => projectsData.find((project) => project.name === name))
-        .filter(Boolean);
-
-      mount.innerHTML = spotlightProjects
-        .map((project, index) => `
-          <article class="spotlight-card spotlight-card--${index + 1}" data-stagger>
-            <h3>${project.name}</h3>
-            <p class="muted">${project.summary || "TODO: Add verified project summary."}</p>
-            <ul class="tag-list">${(project.tags || []).map((tag) => `<li>${tag}</li>`).join("")}</ul>
-            <p><a href="projects.html">Open project context →</a></p>
-          </article>
-        `)
-        .join("");
-    }
-
-    const hero = document.querySelector(".hero--cinematic");
-    if (hero && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      hero.addEventListener("pointermove", (event) => {
-        const rect = hero.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 100;
-        const y = ((event.clientY - rect.top) / rect.height) * 100;
-        hero.style.setProperty("--hero-spot-x", `${x}%`);
-        hero.style.setProperty("--hero-spot-y", `${y}%`);
-      });
-    }
+    import { renderHomePage } from "./assets/js/home.js";
+    renderHomePage();
   </script>
 </body>
 </html>
