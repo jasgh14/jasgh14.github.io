@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Junaid Asghar | Projects</title>
+  <meta name="description" content="Featured projects and case-study notes." />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/utilities.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/pages/projects.css" />
+</head>
+<body class="page-projects">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header" data-site-header></header>
+
+  <main id="main-content" class="site-main container">
+    <section id="projects-hero" class="page-section stack" data-reveal>
+      <p class="eyebrow">Projects</p>
+      <h1>Featured Project Work</h1>
+      <p class="muted">Browse selected projects with case-study scaffolding for deeper technical storytelling.</p>
+    </section>
+
+    <section id="featured-slider" class="page-section slider" data-project-slider data-reveal>
+      <h2>Featured Slider</h2>
+      <article class="card stack">
+        <h3 data-featured-name>Loading…</h3>
+        <p class="muted" data-featured-summary></p>
+        <ul class="tag-list" data-featured-tags></ul>
+      </article>
+      <div class="slider__controls">
+        <button class="button button--ghost" type="button" data-prev>Previous</button>
+        <button class="button" type="button" data-next>Next</button>
+      </div>
+    </section>
+
+    <section id="project-case-study" class="page-section case-study stack" data-reveal>
+      <h2>Project Case-Study Area</h2>
+      <p class="muted" data-case-study>TODO: Case-study content will render here.</p>
+    </section>
+
+    <section id="project-archive" class="page-section" data-reveal>
+      <h2>Project Archive</h2>
+      <div class="card-grid" data-project-archive></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-site-footer></footer>
+
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module">
+    import { setupProjectsSlider } from "./assets/js/projects-slider.js";
+    import { projectsData } from "./assets/data/projects-data.js";
+
+    setupProjectsSlider();
+
+    const archive = document.querySelector("[data-project-archive]");
+    if (archive) {
+      archive.innerHTML = projectsData.map((project) => `
+        <article class="card stack">
+          <h3>${project.name || "TODO: Project title"}</h3>
+          <p class="muted">${project.description || "TODO: Add verified description"}</p>
+          <ul class="tag-list">${(project.tags || ["TODO: tag"]).map((tag) => `<li>${tag}</li>`).join("")}</ul>
+          <p><a href="${project.links?.repo || '#'}" target="_blank" rel="noreferrer">Repository</a></p>
+        </article>
+      `).join("");
+    }
+  </script>
+</body>
+</html>

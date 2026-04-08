@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Junaid Asghar | CV</title>
+  <meta name="description" content="CV summary, skills, education, projects, and practical work." />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/utilities.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/pages/cv.css" />
+</head>
+<body class="page-cv">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header" data-site-header></header>
+
+  <main id="main-content" class="site-main container">
+    <section id="cv-summary" class="page-section stack" data-reveal>
+      <p class="eyebrow">CV</p>
+      <h1>Curriculum Vitae</h1>
+      <p class="muted" data-cv-summary></p>
+      <p><a class="button" href="assets/JunaidAsgharCV.pdf" target="_blank" rel="noreferrer">Download CV PDF</a></p>
+    </section>
+
+    <div class="cv-grid">
+      <section id="skills" class="page-section stack" data-reveal>
+        <h2>Skills</h2>
+        <h3>Focus Areas</h3>
+        <ul class="tag-list" data-cv-focus></ul>
+        <h3>Toolkit</h3>
+        <ul class="tag-list" data-cv-toolkit></ul>
+      </section>
+
+      <section id="links" class="page-section stack" data-reveal>
+        <h2>Links</h2>
+        <ul class="link-list" data-cv-links></ul>
+      </section>
+    </div>
+
+    <section id="education" class="page-section stack" data-reveal>
+      <h2>Education</h2>
+      <div data-cv-education></div>
+    </section>
+
+    <section id="projects" class="page-section stack" data-reveal>
+      <h2>Projects</h2>
+      <ul class="bullet-list" data-cv-projects></ul>
+    </section>
+
+    <section id="experience" class="page-section stack" data-reveal>
+      <h2>Experience / Practical Work</h2>
+      <div data-cv-experience></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-site-footer></footer>
+
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module">
+    import { cvData } from "./assets/data/cv-data.js";
+
+    const summary = document.querySelector("[data-cv-summary]");
+    if (summary) summary.textContent = cvData.summary || "TODO: Add verified CV summary.";
+
+    const fillTagList = (selector, values, fallback) => {
+      const el = document.querySelector(selector);
+      if (!el) return;
+      const items = Array.isArray(values) && values.length ? values : [fallback];
+      el.innerHTML = items.map((value) => `<li>${value}</li>`).join("");
+    };
+
+    fillTagList("[data-cv-focus]", cvData.skills?.focusAreas, "TODO: Add focus area");
+    fillTagList("[data-cv-toolkit]", cvData.skills?.toolkit, "TODO: Add toolkit item");
+
+    const linksEl = document.querySelector("[data-cv-links]");
+    const links = Array.isArray(cvData.links) ? cvData.links : [];
+    if (linksEl) {
+      linksEl.innerHTML = links.map((link) => `<li><a href="${link.href || '#'}" target="_blank" rel="noreferrer">${link.label || "TODO: Link"}</a></li>`).join("");
+    }
+
+    const educationEl = document.querySelector("[data-cv-education]");
+    const educationItems = Array.isArray(cvData.education) ? cvData.education : [];
+    if (educationEl) {
+      educationEl.innerHTML = educationItems.map((item) => `
+        <article class="card stack">
+          <h3>${item.program || "TODO: Program"}</h3>
+          <p class="muted">${item.institution || "TODO: Institution"}</p>
+          <p>${item.start || "TODO"} — ${item.end || "TODO"}</p>
+        </article>
+      `).join("");
+    }
+
+    const projectsEl = document.querySelector("[data-cv-projects]");
+    const cvProjects = Array.isArray(cvData.projects) && cvData.projects.length ? cvData.projects : ["TODO: Add project entry"];
+    if (projectsEl) projectsEl.innerHTML = cvProjects.map((name) => `<li>${name}</li>`).join("");
+
+    const expEl = document.querySelector("[data-cv-experience]");
+    const expItems = Array.isArray(cvData.experience) ? cvData.experience : [];
+    if (expEl) {
+      expEl.innerHTML = expItems.map((item) => `
+        <article class="card stack">
+          <h3>${item.title || "TODO: Role"}</h3>
+          <p class="muted">${item.org || "TODO: Organization"}</p>
+          <p>${item.period || "TODO: Add dates"}</p>
+          <ul>${(item.bullets || ["TODO: Add factual bullet"]).map((b) => `<li>${b}</li>`).join("")}</ul>
+        </article>
+      `).join("");
+    }
+  </script>
+</body>
+</html>

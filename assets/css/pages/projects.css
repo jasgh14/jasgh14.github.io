@@ -1,0 +1,13 @@
+.page-projects .slider {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.page-projects .slider__controls {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.page-projects .case-study {
+  margin-top: var(--space-4);
+}

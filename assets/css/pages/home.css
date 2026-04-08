@@ -1,0 +1,9 @@
+.page-home .hero {
+  padding-block: var(--space-7);
+}
+
+.page-home .hero__cta {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}

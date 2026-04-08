@@ -1,0 +1,11 @@
+.page-contact .contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+@media (max-width: 900px) {
+  .page-contact .contact-cards {
+    grid-template-columns: 1fr;
+  }
+}
