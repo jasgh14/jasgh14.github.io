@@ -127,7 +127,6 @@ export function setupProjectsSlider() {
       panel.classList.remove("is-transitioning");
       void panel.offsetWidth;
       panel.classList.add("is-transitioning");
-      panel.focus();
     }
 
     root.dataset.mood = safeText(project.mood, "diagnosis");
