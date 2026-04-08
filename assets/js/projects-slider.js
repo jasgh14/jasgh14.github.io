@@ -12,6 +12,7 @@ export function setupProjectsSlider() {
   const root = document.querySelector("[data-project-slider]");
   if (!root) return;
 
+  // Keep carousel scope intentionally small for maintainable editing and pacing.
   const featured = projectsData.slice(0, 3);
   if (!featured.length) return;
 

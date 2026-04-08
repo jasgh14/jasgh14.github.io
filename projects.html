@@ -39,20 +39,7 @@
         <p class="eyebrow">Why These Projects</p>
         <h2>Each one represents a different pillar of applied AI delivery.</h2>
       </div>
-      <div class="project-framing__grid">
-        <article class="project-framing__card">
-          <h3>Real-Time Visual Diagnosis System</h3>
-          <p>Demonstrates the interface between live computer-vision inference and practical explainability.</p>
-        </article>
-        <article class="project-framing__card">
-          <h3>E-commerce Analytics Platform</h3>
-          <p>Shows how data shaping, KPI governance, and dashboard clarity can support reliable decisions.</p>
-        </article>
-        <article class="project-framing__card">
-          <h3>PlantOps: Automated Plant Disease Monitoring & Analysis System</h3>
-          <p>Frames machine learning as an operational pipeline with monitoring, review loops, and extensibility.</p>
-        </article>
-      </div>
+      <div class="project-framing__grid" data-project-framing-cards></div>
     </section>
 
     <section
@@ -220,8 +207,8 @@
 
   <script type="module" src="assets/js/main.js"></script>
   <script type="module">
-    import { setupProjectsSlider } from "./assets/js/projects-slider.js";
-    setupProjectsSlider();
+    import { renderProjectsPage } from "./assets/js/projects-page.js";
+    renderProjectsPage();
   </script>
 </body>
 </html>
