@@ -1,7 +1,7 @@
 export const siteContent = {
   site: {
     name: "Junaid Asghar",
-    title: "ML / Data / Analytics Portfolio"
+    title: "Machine Learning and Analytics Portfolio"
   },
   nav: [
     { label: "Home", href: "index.html" },

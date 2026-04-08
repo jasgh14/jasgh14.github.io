@@ -1,6 +1,6 @@
 export const cvData = {
   summary:
-    "Machine Learning practitioner focused on visual analytics, automation workflows, and decision-ready data products. Work spans computer vision pipelines, experimentation, and practical analytics delivery for real-world operations.",
+    "Machine learning practitioner focused on visual analytics, automation workflows, and practical data products. Work spans computer vision pipelines, experimentation, and dependable analytics delivery for real world operations.",
   strengths: [
     {
       category: "Python & ML Systems",
@@ -14,7 +14,7 @@ export const cvData = {
       category: "SQL, Analytics & BI",
       items: [
         "SQL-driven analysis for structured reporting and performance monitoring",
-        "Power BI dashboarding for stakeholder-ready insight communication",
+        "Power BI dashboarding for clear insight communication",
         "Data preparation patterns using pandas-based transformation steps"
       ]
     },
@@ -23,7 +23,7 @@ export const cvData = {
       items: [
         "End-to-end visual diagnosis workflow design",
         "Automation concepts for disease monitoring and analysis tasks",
-        "Applied AI project framing from prototype through practical usage"
+        "Applied AI project framing from prototype through practical use"
       ]
     },
     {
@@ -31,7 +31,7 @@ export const cvData = {
       items: [
         "Iterative experimentation mindset with structured observations",
         "Pipeline modularity for maintainable analytics and ML systems",
-        "UI-assisted delivery approaches for non-technical usage contexts"
+        "UI assisted delivery approaches for non technical usage contexts"
       ]
     }
   ],
@@ -48,7 +48,7 @@ export const cvData = {
     {
       name: "Real-Time Visual Diagnosis System",
       summary:
-        "Real-time visual diagnosis pipeline combining detection and classification with explainability-aware output for practical usage.",
+        "Real time visual diagnosis pipeline combining detection and classification with explainability aware output for practical use.",
       highlights: [
         "Designed around computer vision model flow for timely prediction feedback",
         "Integrated explainability considerations to support result interpretation",
@@ -63,7 +63,7 @@ export const cvData = {
       highlights: [
         "Focused on reliable data shaping and reporting consistency",
         "Structured for decision-support views rather than one-off analysis",
-        "Connected ETL thinking with stakeholder-facing BI presentation"
+        "Connected ETL thinking with BI presentation for business users"
       ],
       repo: "https://github.com/jasgh14"
     },
