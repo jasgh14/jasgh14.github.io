@@ -31,7 +31,10 @@
       <p class="eyebrow">Projects</p>
       <h1>Project Case Studies</h1>
       <p class="muted">Three focused builds that show how I design, implement, and explain technical work.</p>
-      <p class="projects-hero__hint" id="projects-hint">Use ← → to browse</p>
+      <div class="projects-hero__meta">
+        <p class="projects-hero__hint" id="projects-hint">Use ← → to browse</p>
+        <p class="projects-hero__deck" data-current-project-name>Real-Time Visual Diagnosis System</p>
+      </div>
     </section>
 
     <section id="project-framing" class="page-section project-framing" data-reveal>
@@ -55,11 +58,15 @@
         <p class="muted">Use keyboard, buttons, or swipe to move through the three projects.</p>
       </div>
 
-      <div class="projects-showcase__progress" aria-label="Project progress">
-        <span class="projects-showcase__count" data-progress-count>1 / 3</span>
-        <div class="projects-showcase__track" role="presentation">
-          <span class="projects-showcase__bar" data-progress-bar></span>
+      <div class="projects-showcase__rail">
+        <div class="projects-showcase__progress" aria-label="Project progress">
+          <span class="projects-showcase__count" data-progress-count>1 / 3</span>
+          <div class="projects-showcase__track" role="presentation">
+            <span class="projects-showcase__bar" data-progress-bar></span>
+          </div>
         </div>
+
+        <div class="projects-showcase__index" data-project-nav aria-label="Jump to a project"></div>
       </div>
 
       <div class="projects-showcase__viewport" tabindex="0" aria-label="Featured projects carousel viewport">
