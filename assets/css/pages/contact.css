@@ -134,12 +134,26 @@
 
 @media (prefers-reduced-motion: reduce) {
   .page-contact .contact-card,
-  .page-contact .copy-toast {
+  .page-contact .copy-toast,
+  .page-contact .contact-card__icon {
     transition: none;
   }
 
   .page-contact .contact-card:hover,
-  .page-contact .contact-card:focus-within {
+  .page-contact .contact-card:focus-within,
+  .page-contact .contact-card:hover .contact-card__icon,
+  .page-contact .contact-card:focus-within .contact-card__icon {
     transform: none;
   }
+}
+
+
+.page-contact .contact-card:hover .contact-card__icon,
+.page-contact .contact-card:focus-within .contact-card__icon {
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), 0 10px 22px rgba(21, 33, 59, 0.52);
+}
+
+.page-contact .contact-card__icon {
+  transition: transform var(--duration-fast) var(--easing-emphasis), box-shadow var(--duration-base) var(--easing-standard);
 }
