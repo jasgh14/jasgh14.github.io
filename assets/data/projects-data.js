@@ -19,8 +19,8 @@ export const projectsData = [
   },
   {
     slug: "plantops",
-    name: "PlantOps",
-    summary: "Plant operations concept replacing the previous third project slot.",
+    name: "PlantOps: Automated Plant Disease Monitoring & Analysis System",
+    summary: "Automated monitoring concept for plant disease analysis workflows with computer vision support.",
     description: "TODO: Add verified PlantOps project summary, stack, and scope.",
     tags: ["TODO: stack", "TODO: domain"],
     links: { repo: "TODO: Add verified PlantOps repository" },

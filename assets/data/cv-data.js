@@ -21,7 +21,7 @@ export const cvData = {
   projects: [
     "Real-Time Visual Diagnosis System",
     "E-commerce Analytics Platform",
-    "PlantOps"
+    "PlantOps: Automated Plant Disease Monitoring & Analysis System"
   ],
   experience: [
     {
