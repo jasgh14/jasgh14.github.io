@@ -93,6 +93,79 @@
   max-inline-size: 68ch;
 }
 
+.page-projects .project-panel__case-study {
+  margin-top: var(--space-3);
+  border-top: 1px solid color-mix(in srgb, var(--accent) 22%, var(--color-border-soft));
+  padding-top: var(--space-3);
+  gap: var(--space-3);
+}
+
+.page-projects .project-panel__section {
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--color-border-soft));
+  border-radius: var(--radius-lg);
+  background: linear-gradient(170deg, color-mix(in srgb, var(--accent) 8%, transparent), color-mix(in srgb, var(--color-surface-2) 88%, transparent));
+  padding: var(--space-3);
+}
+
+.page-projects .project-panel__section h4 {
+  margin: 0;
+  font-size: var(--text-base);
+  letter-spacing: 0.01em;
+}
+
+.page-projects .project-panel__flow,
+.page-projects .project-panel__list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.page-projects .project-panel__flow li::marker {
+  color: var(--accent);
+}
+
+.page-projects .project-panel__stack-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.page-projects .project-panel__stack-list li {
+  display: grid;
+  grid-template-columns: minmax(7.4rem, 10rem) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--color-border-soft));
+  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+}
+
+.page-projects .project-panel__stack-list span {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-text-muted);
+}
+
+.page-projects .project-panel__stack-list strong {
+  font-size: var(--text-sm);
+  font-weight: 580;
+}
+
+.page-projects .project-panel__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.page-projects .project-panel__cta .button {
+  min-inline-size: 9.5rem;
+}
+
 .page-projects .projects-showcase__controls {
   display: flex;
   flex-wrap: wrap;
@@ -172,6 +245,11 @@
 }
 
 @media (max-width: 40rem) {
+  .page-projects .project-panel__stack-list li {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
   .page-projects .projects-showcase__controls .button {
     flex: 1 1 10rem;
   }

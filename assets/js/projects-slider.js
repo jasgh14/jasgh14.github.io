@@ -38,7 +38,15 @@ export function setupProjectsSlider() {
     architecture: document.querySelector("[data-process-architecture]"),
     workflow: document.querySelector("[data-process-workflow]"),
     lessons: document.querySelector("[data-process-lessons]"),
-    cta: document.querySelector("[data-project-cta]")
+    cta: document.querySelector("[data-project-cta]"),
+    panelProblem: root.querySelector("[data-panel-problem]"),
+    panelApproach: root.querySelector("[data-panel-approach]"),
+    panelWorkflow: root.querySelector("[data-panel-workflow]"),
+    panelFeatures: root.querySelector("[data-panel-features]"),
+    panelTools: root.querySelector("[data-panel-tools]"),
+    panelInteresting: root.querySelector("[data-panel-interesting]"),
+    panelLearned: root.querySelector("[data-panel-learned]"),
+    panelCtaButtons: root.querySelector("[data-panel-cta-buttons]")
   };
 
   function renderMetadata(metadata) {
@@ -57,6 +65,49 @@ export function setupProjectsSlider() {
     if (!ui.tags) return;
     const items = Array.isArray(tags) && tags.length ? tags : ["TODO: add tags"];
     ui.tags.innerHTML = items.map((tag) => `<li>${safeText(tag, "TODO: tag")}</li>`).join("");
+  }
+
+  function renderList(list, fallback, toHtml) {
+    const items = Array.isArray(list) && list.length ? list : [fallback];
+    return items.map((item) => toHtml(item)).join("");
+  }
+
+  function renderPanelCaseStudy(caseStudy) {
+    if (ui.panelProblem) ui.panelProblem.textContent = safeText(caseStudy?.problemFraming, "TODO: Add verified problem framing.");
+    if (ui.panelApproach) ui.panelApproach.textContent = safeText(caseStudy?.systemApproach, "TODO: Add verified system approach.");
+
+    if (ui.panelWorkflow) {
+      ui.panelWorkflow.innerHTML = renderList(caseStudy?.pipeline, "TODO: Add verified pipeline stage.", (item) => `<li>${safeText(item, "TODO: Add verified pipeline stage.")}</li>`);
+    }
+
+    if (ui.panelFeatures) {
+      ui.panelFeatures.innerHTML = renderList(caseStudy?.features, "TODO: Add verified feature.", (item) => `<li>${safeText(item, "TODO: Add verified feature.")}</li>`);
+    }
+
+    if (ui.panelTools) {
+      ui.panelTools.innerHTML = renderList(caseStudy?.tools, { label: "TODO", value: "Add verified tooling." }, (item) => {
+        const label = safeText(item?.label, "TODO");
+        const value = safeText(item?.value, "Add verified tooling.");
+        return `<li><span>${label}</span><strong>${value}</strong></li>`;
+      });
+    }
+
+    if (ui.panelInteresting) ui.panelInteresting.textContent = safeText(caseStudy?.technicalInteresting, "TODO: Add verified technical depth notes.");
+    if (ui.panelLearned) ui.panelLearned.textContent = safeText(caseStudy?.learned, "TODO: Add verified learning notes.");
+
+    if (ui.panelCtaButtons) {
+      const buttons = Array.isArray(caseStudy?.ctaButtons) && caseStudy.ctaButtons.length
+        ? caseStudy.ctaButtons
+        : [{ label: "Contact", href: "contact.html" }];
+      ui.panelCtaButtons.innerHTML = buttons
+        .map((button, index) => {
+          const label = safeText(button?.label, "Learn more");
+          const href = safeText(button?.href, "contact.html");
+          const styleClass = index === 0 ? "button" : "button button--ghost";
+          return `<a class="${styleClass}" href="${href}">${label}</a>`;
+        })
+        .join("");
+    }
   }
 
   function paint(nextIndex, { announce = false } = {}) {
@@ -90,6 +141,7 @@ export function setupProjectsSlider() {
 
     renderMetadata(project.metadata);
     renderTags(project.tags);
+    renderPanelCaseStudy(project.caseStudy);
 
     if (announce && liveRegion) {
       liveRegion.textContent = `Project ${currentIndex + 1} of ${featured.length}: ${safeText(project.name, "Untitled project")}`;
