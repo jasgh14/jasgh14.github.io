@@ -29,20 +29,12 @@
   <main id="main-content" class="site-main container">
     <section id="projects-hero" class="page-section projects-hero stack" data-reveal>
       <p class="eyebrow">Projects</p>
-      <h1>Project Case Studies</h1>
-      <p class="muted">Three focused builds that show how I design, implement, and explain technical work.</p>
+      <h1>Project Focus Deck</h1>
+      <p class="muted">One project at a time. Three focused builds with clear technical intent, system design, and practical delivery.</p>
       <div class="projects-hero__meta">
         <p class="projects-hero__hint" id="projects-hint">Use ← → to browse</p>
         <p class="projects-hero__deck" data-current-project-name>Real-Time Visual Diagnosis System</p>
       </div>
-    </section>
-
-    <section id="project-framing" class="page-section project-framing" data-reveal>
-      <div class="project-framing__intro">
-        <p class="eyebrow">Why These Projects</p>
-        <h2>Each project shows a different part of my technical practice.</h2>
-      </div>
-      <div class="project-framing__grid" data-project-framing-cards></div>
     </section>
 
     <section
@@ -55,7 +47,7 @@
     >
       <div class="projects-showcase__header">
         <h2 id="showcase-heading">Featured Projects</h2>
-        <p class="muted">Use keyboard, buttons, or swipe to move through the three projects.</p>
+        <p class="muted">Compact case study view with stack, pipeline, and next action.</p>
       </div>
 
       <div class="projects-showcase__rail">
@@ -65,7 +57,6 @@
             <span class="projects-showcase__bar" data-progress-bar></span>
           </div>
         </div>
-
         <div class="projects-showcase__index" data-project-nav aria-label="Jump to a project"></div>
       </div>
 
@@ -76,56 +67,40 @@
           <p class="project-panel__summary muted" data-project-summary>Loading project summary…</p>
           <p class="project-panel__description" data-project-description></p>
           <p class="project-panel__note muted" data-project-note></p>
-          <div class="project-panel__case-study stack" data-panel-case-study>
-            <article class="project-panel__section stack">
-              <h4>Why the problem matters</h4>
-              <p data-panel-problem>TODO: Add verified problem framing.</p>
-            </article>
-            <article class="project-panel__section stack">
-              <h4>System architecture</h4>
-              <p data-panel-approach>TODO: Add verified system approach.</p>
-            </article>
-            <article class="project-panel__section stack">
-              <h4>End-to-end pipeline</h4>
-              <ul class="project-panel__flow" data-panel-workflow>
-                <li>TODO: Add verified pipeline stage.</li>
-              </ul>
-            </article>
-            <article class="project-panel__section stack">
-              <h4>Automation features</h4>
-              <ul class="project-panel__list" data-panel-features>
-                <li>TODO: Add verified feature.</li>
-              </ul>
-            </article>
-            <article class="project-panel__section stack">
-              <h4>Analytics and monitoring layer</h4>
-              <p data-panel-analytics>TODO: Add verified analytics and monitoring notes.</p>
-            </article>
-            <article class="project-panel__section stack">
-              <h4>Human review / feedback loop</h4>
-              <p data-panel-human-review>TODO: Add verified review loop details.</p>
-            </article>
-            <article class="project-panel__section stack">
-              <h4>Tools / technologies</h4>
-              <ul class="project-panel__stack-list" data-panel-tools>
-                <li>TODO: Add verified tooling.</li>
-              </ul>
-            </article>
-            <article class="project-panel__section stack">
-              <h4>What I learned</h4>
-              <p data-panel-learned>TODO: Add verified learning notes.</p>
-            </article>
-            <article class="project-panel__section stack">
-              <h4>Future evolution / extensibility</h4>
-              <p data-panel-future>TODO: Add verified future direction notes.</p>
-            </article>
-            <article class="project-panel__section stack">
-              <h4>Explore this project</h4>
-              <div class="project-panel__cta" data-panel-cta-buttons>
-                <a class="button button--ghost" href="contact.html">Contact</a>
-              </div>
-            </article>
-          </div>
+
+          <section class="project-panel__section stack">
+            <h4>System approach</h4>
+            <p data-panel-approach>Loading…</p>
+          </section>
+
+          <section class="project-panel__section stack">
+            <h4>End-to-end pipeline</h4>
+            <ul class="project-panel__flow" data-panel-workflow>
+              <li>Loading…</li>
+            </ul>
+          </section>
+
+          <section class="project-panel__section stack">
+            <h4>Automation and review</h4>
+            <ul class="project-panel__list" data-panel-features>
+              <li>Loading…</li>
+            </ul>
+            <p class="muted" data-panel-human-review></p>
+          </section>
+
+          <section class="project-panel__section stack">
+            <h4>Tools and technologies</h4>
+            <ul class="project-panel__stack-list" data-panel-tools>
+              <li>Loading…</li>
+            </ul>
+          </section>
+
+          <section class="project-panel__section stack">
+            <h4>Explore this project</h4>
+            <div class="project-panel__cta" data-panel-cta-buttons>
+              <a class="button button--ghost" href="contact.html">Contact</a>
+            </div>
+          </section>
         </article>
       </div>
 
@@ -140,74 +115,11 @@
       <p class="sr-only" aria-live="polite" data-project-live></p>
     </section>
 
-    <section id="project-metadata" class="page-section project-metadata stack" data-reveal>
-      <h2>Project Overview</h2>
-      <dl class="project-metadata__grid" data-project-metadata>
-        <div class="project-metadata__item">
-          <dt>Role</dt>
-          <dd>TODO: Add verified role details.</dd>
-        </div>
-        <div class="project-metadata__item">
-          <dt>Timeline</dt>
-          <dd>TODO: Add verified timeline details.</dd>
-        </div>
-        <div class="project-metadata__item">
-          <dt>Primary Outcome</dt>
-          <dd>TODO: Add verified outcomes.</dd>
-        </div>
-      </dl>
-    </section>
-
-    <section id="project-case-study" class="page-section case-study stack" data-reveal>
-      <h2>Case Study Detail</h2>
-      <div class="case-study__grid">
-        <article class="detail-card stack">
-          <h3>Challenge</h3>
-          <p data-deep-challenge>TODO: Add verified challenge notes.</p>
-        </article>
-        <article class="detail-card stack">
-          <h3>Approach</h3>
-          <p data-deep-approach>TODO: Add verified approach notes.</p>
-        </article>
-        <article class="detail-card stack">
-          <h3>Result</h3>
-          <p data-deep-result>TODO: Add verified result notes.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="project-stack" class="page-section stack-section stack" data-reveal>
-      <h2>Technology Stack</h2>
-      <ul class="tag-list project-stack__tags" data-project-tags>
-        <li>TODO: stack</li>
-      </ul>
-    </section>
-
-    <section id="project-process" class="page-section process-section stack" data-reveal>
-      <h2>Architecture, Process, Lessons</h2>
-      <div class="process-section__grid">
-        <article class="detail-card stack">
-          <h3>Architecture</h3>
-          <p data-process-architecture>TODO: Add verified architecture notes.</p>
-        </article>
-        <article class="detail-card stack">
-          <h3>Process</h3>
-          <p data-process-workflow>TODO: Add verified process notes.</p>
-        </article>
-        <article class="detail-card stack">
-          <h3>Lessons</h3>
-          <p data-process-lessons>TODO: Add verified lessons.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="project-cta" class="page-section project-cta stack" data-reveal>
-      <h2>Interested in this project?</h2>
-      <p class="muted" data-project-cta>TODO: Add verified CTA aligned to the selected project.</p>
-      <p>
-        <a class="button button--ghost" href="contact.html">Contact</a>
-      </p>
-    </section>
+    <nav class="page-section project-quick-jump" data-reveal aria-label="Project quick links">
+      <a href="index.html">Home</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </main>
 
   <footer class="site-footer" data-site-footer></footer>
