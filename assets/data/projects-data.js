@@ -3,8 +3,8 @@ export const projectsData = [
     slug: "plantops",
     name: "PlantOps: Automated Plant Disease Monitoring & Analysis System",
     mood: "plantops",
-    summary: "A practical ML operations project that moves plant imagery from ingestion to inference, analytics, human review, and reporting.",
-    description: "PlantOps is an operational project. It is less about a single model demo and more about building a dependable disease monitoring system that can be extended over time.",
+    summary: "A compact ML operations build that connects image ingestion, inference, storage, analytics, reporting, and human review in one steady loop.",
+    description: "PlantOps is designed as a systems project with clear handoffs, repeatable flow, and practical automation choices.",
     hero: {
       eyebrow: "Flagship · ML Systems",
       headline: "A plant health platform that connects ingestion, inference, storage, analytics, review, and reporting in one practical loop.",
@@ -17,25 +17,25 @@ export const projectsData = [
     ],
     tags: ["Computer Vision", "ML Systems", "Data Pipeline", "Analytics", "Human-in-the-Loop", "Automation"],
     deepDive: {
-      challenge: "Plant health checks are often reactive, manual, and hard to scale across time and locations. The core challenge was to design a system that can continuously ingest imagery, run diagnosis workflows, and surface the right cases for human follow up.",
-      approach: "I approached PlantOps as a modular ML product. I separated ingestion, inference, storage, analytics, and review responsibilities, then connected them with predictable handoff contracts so the system can evolve without rewrites.",
+      challenge: "Plant checks can be manual and fragmented, so teams struggle to spot patterns early and triage uncertain cases quickly.",
+      approach: "I treated PlantOps as a modular ML product with explicit stages, structured outputs, and automation hooks for repeatable operations.",
       result: "The result is a system blueprint and working project direction that supports operational monitoring, not one off predictions. The emphasis is reliable flow, traceability, and extensibility while keeping claims realistic."
     },
     process: {
-      architecture: "The architecture uses layered responsibilities: acquisition layer for image events, inference services for disease signals, storage for raw and derived artifacts, analytics models for trend/quality visibility, and a review/reporting layer for action-taking.",
-      workflow: "Work progressed in pipeline order: input contracts, inference orchestration, persistence strategy, analytics definitions, then review and reporting surfaces. This reduced coupling and made each layer easier to validate.",
+      architecture: "Layered architecture: image ingestion, inference service, storage layer, analytics views, reporting outputs, and a reviewer feedback loop.",
+      workflow: "Build order followed the pipeline rail: ingestion contracts, inference orchestration, persistence, analytics shaping, reporting, then review routing.",
       lessons: "Strong ML systems rely on operational design choices as much as model logic. Queue behavior, schema clarity, and exception handling determine whether the system remains usable as volume and complexity increase."
     },
     caseStudy: {
       problemFraming: "Plant disease management benefits from early detection, but teams need more than a prediction label. They need a consistent operational flow for triage, context, and follow through. PlantOps addresses this by framing diagnosis as a pipeline problem.",
       systemApproach: "PlantOps uses a blueprint-style layered architecture with explicit boundaries between ingestion, model inference, persistence, analytics computation, and human review. Each layer exposes structured outputs so monitoring and downstream automation stay reliable.",
       pipeline: [
-        "Ingestion: accept image streams/uploads with source metadata and timestamp normalization.",
-        "Inference: run disease detection/classification with confidence capture and inference artifact logging.",
-        "Storage: persist raw images, predictions, and derived feature summaries in queryable structures.",
-        "Analytics: aggregate health trends, confidence distributions, and anomaly slices for review dashboards.",
-        "Review: route uncertain or high-impact cases into a human validation queue.",
-        "Reporting: publish operational summaries, alerts, and routine status outputs for stakeholders."
+        "Ingestion: receive image uploads with source and timestamp metadata.",
+        "Inference: run disease classification and capture confidence output.",
+        "Storage: persist raw images, predictions, and review states.",
+        "Analytics: compute trend and confidence views for monitoring.",
+        "Reporting: generate concise status summaries and exception alerts.",
+        "Review loop: route uncertain cases for human validation and feedback."
       ],
       features: [
         "Automated ingestion-to-inference handoff with repeatable processing contracts.",
@@ -52,7 +52,7 @@ export const projectsData = [
         { label: "Automation", value: "Event and schedule-oriented processing design for recurring monitoring/reporting tasks" },
         { label: "Interface", value: "Dashboard/review-oriented presentation model for triage and decision support" }
       ],
-      learned: "I learned to treat ML projects as long lived systems with feedback loops, not static demos. Designing for observability, reviewability, and operational continuity creates stronger value than model output alone.",
+      learned: "I learned that practical ML value comes from dependable flow design, clear data contracts, and a review loop that keeps the system improving.",
       futureEvolution: "Next evolution paths include stronger active-learning workflows, richer alert policy controls, environment-specific deployment profiles, and expanded integrations for field operations and stakeholder reporting.",
       ctaButtons: [
         { label: "View GitHub", href: "https://github.com/jasgh14" },
