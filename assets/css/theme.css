@@ -2,9 +2,9 @@
   color-scheme: dark;
 
   /* Core backgrounds */
-  --color-bg-canvas: #06070c;
-  --color-bg: #090b12;
-  --color-bg-elevated: #0d1120;
+  --color-bg-canvas: #04050a;
+  --color-bg: #070a12;
+  --color-bg-elevated: #0b1020;
 
   /* Surface layers */
   --color-surface-1: rgba(18, 25, 42, 0.72);
@@ -23,9 +23,9 @@
   --color-text-subtle: #6e7b98;
 
   /* Accent system */
-  --color-accent: #7fa8ff;
-  --color-accent-strong: #99bbff;
-  --color-accent-emphasis: #77e0cb;
+  --color-accent: #87a8ff;
+  --color-accent-strong: #abc4ff;
+  --color-accent-emphasis: #6ee3d1;
   --color-accent-glow: rgba(127, 168, 255, 0.36);
 
   /* Borders and dividers */
@@ -37,7 +37,7 @@
   /* Shadows and glow */
   --shadow-sm: 0 6px 20px rgba(6, 10, 20, 0.36);
   --shadow-md: 0 14px 38px rgba(4, 8, 20, 0.42);
-  --shadow-lg: 0 28px 64px rgba(2, 6, 18, 0.48);
+  --shadow-lg: 0 30px 80px rgba(1, 5, 17, 0.56);
   --shadow-glow: 0 0 0 1px rgba(153, 187, 255, 0.18), 0 0 32px rgba(127, 168, 255, 0.16);
 
   /* Blur and glass */
@@ -97,5 +97,5 @@
   --easing-standard: cubic-bezier(0.2, 0.72, 0.22, 1);
   --easing-emphasis: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --focus-ring: 0 0 0 2px rgba(8, 11, 20, 0.95), 0 0 0 4px rgba(127, 168, 255, 0.72);
+  --focus-ring: 0 0 0 2px rgba(8, 11, 20, 0.95), 0 0 0 4px rgba(171, 196, 255, 0.78);
 }
