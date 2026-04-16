@@ -18,7 +18,7 @@ export function renderHeader() {
     <div class="container site-header__inner">
       <a class="brand" href="index.html">${siteContent.site?.name || "Portfolio"}</a>
       <nav class="site-nav" aria-label="Primary" data-open="false">
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav-links" aria-haspopup="true">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav-links" aria-haspopup="true" aria-label="Open navigation menu">
           Menu
         </button>
         <div class="nav-links-wrap" id="primary-nav-links-wrap">
@@ -41,12 +41,14 @@ export function setupMobileMenu() {
   const closeMenu = ({ restoreFocus = false } = {}) => {
     nav.setAttribute("data-open", "false");
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open navigation menu");
     if (restoreFocus) toggle.focus();
   };
 
   const openMenu = () => {
     nav.setAttribute("data-open", "true");
     toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close navigation menu");
   };
 
   toggle.addEventListener("click", () => {
@@ -108,10 +110,11 @@ function moveIndicator(link) {
   const navLinks = document.querySelector(".nav-links");
   const indicator = document.querySelector(".nav-indicator");
   if (!navLinks || !indicator || !(link instanceof HTMLElement)) return;
+  if (window.matchMedia("(max-width: 900px)").matches) return;
 
   const linkRect = link.getBoundingClientRect();
   const navRect = navLinks.getBoundingClientRect();
-  const x = linkRect.left - navRect.left;
+  const x = linkRect.left - navRect.left + navLinks.offsetLeft;
   indicator.style.setProperty("--indicator-x", `${x}px`);
   indicator.style.setProperty("--indicator-w", `${linkRect.width}px`);
   indicator.classList.add("is-visible");
@@ -121,7 +124,8 @@ export function highlightActiveNav() {
   const current = normalizePath(window.location.pathname);
   let activeLink = null;
 
-  document.querySelectorAll(".nav-links a").forEach((link) => {
+  const links = document.querySelectorAll(".nav-links a");
+  links.forEach((link) => {
     const href = link.getAttribute("href") || "";
     if (href === current) {
       link.setAttribute("aria-current", "page");
@@ -144,4 +148,11 @@ export function highlightActiveNav() {
   window.addEventListener("resize", () => {
     if (activeLink) moveIndicator(activeLink);
   });
+
+  if (!activeLink && links.length) {
+    const firstLink = links[0];
+    if (firstLink instanceof HTMLElement) {
+      requestAnimationFrame(() => moveIndicator(firstLink));
+    }
+  }
 }
