@@ -32,6 +32,19 @@ function toButtons(project) {
   }));
 }
 
+function toPipelineSteps(project) {
+  const rawSteps = Array.isArray(project.caseStudy?.pipeline) ? project.caseStudy.pipeline : [];
+  if (!rawSteps.length) return ["Ingestion", "Inference", "Storage", "Analytics", "Review"];
+
+  return rawSteps
+    .slice(0, 6)
+    .map((step) => {
+      const text = safeText(step, "Pipeline step");
+      const [label] = text.split(":");
+      return safeText(label, text);
+    });
+}
+
 export function renderProjectsPage() {
   const root = document.querySelector("[data-project-deck]");
   if (!root) return;
@@ -50,6 +63,7 @@ export function renderProjectsPage() {
     problem: root.querySelector("[data-project-problem]"),
     approach: root.querySelector("[data-project-approach]"),
     learning: root.querySelector("[data-project-learning]"),
+    pipeline: root.querySelector("[data-project-pipeline]"),
     stack: root.querySelector("[data-project-stack]"),
     cta: root.querySelector("[data-project-cta]"),
     count: root.querySelector("[data-progress-count]"),
@@ -90,6 +104,9 @@ export function renderProjectsPage() {
     ui.problem.textContent = safeText(project.deepDive?.challenge, "Problem detail coming soon.");
     ui.approach.textContent = safeText(project.deepDive?.approach, "Approach detail coming soon.");
     ui.learning.textContent = safeText(project.caseStudy?.learned, "Learning detail coming soon.");
+    ui.pipeline.innerHTML = toPipelineSteps(project)
+      .map((step) => `<li>${step}</li>`)
+      .join("");
 
     ui.systemDirection.textContent = safeText(project.process?.architecture, "System direction coming soon.");
     ui.deliveryFlow.textContent = safeText(project.process?.workflow, "Delivery flow coming soon.");
