@@ -97,6 +97,10 @@ export function renderProjectsPage() {
     const project = featured[currentIndex];
 
     root.dataset.mood = safeText(project.mood, "diagnosis");
+    root.dataset.transitioning = "true";
+    ui.visual?.classList.remove("is-swapping");
+    void ui.visual?.offsetWidth;
+    ui.visual?.classList.add("is-swapping");
 
     ui.eyebrow.textContent = safeText(project.hero?.eyebrow, "Project");
     ui.name.textContent = safeText(project.name, "Project");
@@ -130,6 +134,10 @@ export function renderProjectsPage() {
     if (announce) {
       ui.live.textContent = `Project ${currentIndex + 1} of ${featured.length}: ${safeText(project.name, "Project")}`;
     }
+
+    window.setTimeout(() => {
+      root.dataset.transitioning = "false";
+    }, 260);
   }
 
   function nextProject() {
@@ -170,6 +178,18 @@ export function renderProjectsPage() {
     if (event.key === "ArrowLeft") {
       event.preventDefault();
       previousProject();
+    }
+
+    if (event.key === "Home") {
+      event.preventDefault();
+      paint(0, { announce: true });
+      ui.visual?.focus();
+    }
+
+    if (event.key === "End") {
+      event.preventDefault();
+      paint(featured.length - 1, { announce: true });
+      ui.visual?.focus();
     }
   });
 

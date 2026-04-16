@@ -210,6 +210,20 @@
 }
 
 @media (max-width: 640px) {
+  .page-home .hero--cinematic {
+    min-height: min(74vh, 34rem);
+    padding: 1.1rem;
+  }
+
+  .page-home .hero__title,
+  .page-home .hero__intro {
+    margin-bottom: var(--space-3);
+  }
+
+  .page-home .hero__cta {
+    gap: var(--space-2);
+  }
+
   .page-home .hero__scroll-cue { bottom: var(--space-3); }
   .page-home .recruiter-mode__list { grid-template-columns: minmax(0, 1fr); }
   .page-home .hero__social { flex-wrap: wrap; }
