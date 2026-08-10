@@ -16,7 +16,7 @@ export const homeData = {
   selectedFocus: [
     {
       label: "System Design",
-      title: "I start with architecture.",
+      title: "Architecture forward.",
       body: "I build modular pipelines, add clear observability, and keep interfaces understandable as scope grows."
     },
     {
