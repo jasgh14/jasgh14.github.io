@@ -3,7 +3,6 @@ export const contactData = {
   cards: [
     {
       title: "Email",
-      description: "Best for direct outreach.",
       href: "mailto:Junaid453@outlook.com",
       displayValue: "Junaid453@outlook.com",
       label: "Send email",
@@ -21,7 +20,6 @@ export const contactData = {
     },
     {
       title: "LinkedIn",
-      description: "Professional profile.",
       href: "https://www.linkedin.com/in/junaid-asghar453/",
       displayValue: "linkedin.com/in/junaid-asghar453",
       label: "Open LinkedIn",
@@ -29,8 +27,7 @@ export const contactData = {
       external: true
     },
     {
-      title: "PDF CV",
-      description: "Download the full CV.",
+      title: "CV",
       href: "assets/JunaidAsgharCV.pdf",
       displayValue: "assets/JunaidAsgharCV.pdf",
       label: "Download CV",
