@@ -2,9 +2,9 @@ export const homeData = {
   hero: {
     kicker: "Machine Learning and Analytics",
     name: "Junaid Asghar",
-    title: "Machine learning practitioner focused on computer vision, analytics, and reliable technical delivery.",
+    title: "Machine learning, specialising in computer vision, analytics, and reliable technical delivery.",
     intro:
-      "I build practical systems that connect model development, evaluation, and usable interfaces, so good work moves beyond notebooks into dependable workflows.",
+      "Creating systems that connect model development, evaluation, and usable interfaces, to solve real problems.",
     microcopy: "Focused on reproducible pipelines, interpretable outputs, and measurable evaluation."
   },
   // Order here controls the Home spotlight card order.
